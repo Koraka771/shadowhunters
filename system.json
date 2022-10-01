@@ -1,0 +1,42 @@
+{
+    "id": "shadowhunters",
+    "title": "Shadowhunters",
+    "description": "Korakas OSR heartbreaker",
+    "version": "0.1",
+    "compatibility": {
+        "minimum": "10",
+        "verified": "10.286",
+        "maximum": "10"
+      },
+    "authors": [
+        {
+          "name": "Koraka"
+        }
+      ],
+    "esmodules": [
+        "shadowhunters.js"
+    ],
+    "styles": [
+        "shadowhunters.css"
+    ],
+    "packs": [
+
+    ],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+          },
+          {
+            "lang": "de",
+            "name": "Deutsch",
+            "path": "lang/de.json"
+          }
+    ],
+    "primaryTokenAttribute": "hp",
+    "inititive": "1d6",
+    "url": "",
+    "manifest": "",
+    "download": ""
+}
