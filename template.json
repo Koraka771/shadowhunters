@@ -1,4 +1,24 @@
 {
     "Actor": {},
-    "Item": {}
+    "Item": {
+        "types": ["weapon","armor","equipment"],
+        "templates": {
+            "common": {
+                "description": "",
+                "cost": 0
+            }
+        },
+        "weapon": {
+            "templates": ["common"],
+            "weaponType": "Melee",
+            "damage": "d6"
+        },
+        "armor": {
+            "templates": ["common"],
+            "defense": 0
+        },
+        "equipment": {
+            "templates": ["common"]
+        }
+    }
 }

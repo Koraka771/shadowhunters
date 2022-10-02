@@ -1,3 +1,24 @@
 {
-    
+    "shadowhunters": {
+        "cost": "Cost (Crowns)",
+        "defense": "Defense",
+        "description": "Description",
+        "dice": {
+            "d2": "d2",
+            "d4": "d4",
+            "d6": "d6",
+            "d8": "d8",
+            "d10": "d10",
+            "d12": "d12"
+        },
+        "weapon":{
+            "damage": "Damage",
+            "type": "Weapon type",
+            "weaponType": {
+                "melee": "Melee",
+                "ranged": "Ranged",
+                "thrown": "Thrown"
+            }
+        }
+    }
 }

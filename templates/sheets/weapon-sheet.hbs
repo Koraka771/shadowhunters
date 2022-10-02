@@ -1,0 +1,32 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+        <h1 class="charname">
+            <input name="name" type="text" value="{{item.name}}" placeholder="Name" />
+        </h1>
+    </header>
+    <div class="sheet-body">
+        <div class="flexrow">
+            <label>{{localize "shadowhunters.weapon.type"}}</label>
+            <select name="system.weaponType">
+                {{#select item.system.weaponType}}
+                {{#each config.weaponTypes as |name type|}}
+                <option value="{{type}}">{{localize name}}</option>
+                {{/each}}
+                {{/select}}
+            </select>
+            <label>{{localize "shadowhunters.weapon.damage"}}</label>
+            <select name="system.damage">
+                {{#select item.system.damage}}
+                {{#each config.damageDice as |name type|}}
+                <option value="{{type}}">{{localize name}}</option>
+                {{/each}}
+                {{/select}}
+            </select>
+            <label>{{localize "shadowhunters.cost"}}</label>
+            <input type="text" data-dtype="Number" name="system.cost" value="{{item.system.cost}}">
+        </div>
+        <label>{{localize "shadowhunters.description"}}</label>
+        {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
+    </div>
+</form>
