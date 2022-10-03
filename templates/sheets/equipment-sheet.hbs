@@ -9,8 +9,12 @@
         <div>
             <h2>{{localize "shadowhunters.attributes"}}</h2>
             <div class="sheet-body-attributes">
-                <label>{{localize "shadowhunters.defense"}}</label>
-                <input type="text" data-dtype="Number" name="system.defense" value="{{item.system.defense}}">
+                <label>{{localize "shadowhunters.quantity"}}</label>
+                <div class="attribute-line">
+                    <input type="text" data-dtype="Number" name="system.quantity.value" value="{{item.system.quantity.value}}">
+                    <span>/</span>
+                    <input type="text" data-dtype="Number" name="system.quantity.max" value="{{item.system.quantity.max}}">
+                </div>
                 <label>{{localize "shadowhunters.cost"}}</label>
                 <input type="text" data-dtype="Number" name="system.cost" value="{{item.system.cost}}">                
             </div>

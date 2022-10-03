@@ -1,12 +1,86 @@
+.shadowhunters.sheet.item {
+  min-width: 500px;
+  min-height: 400px;
+}
+.shadowhunters.sheet.item input,
+.shadowhunters.sheet.item select {
+  border: none;
+  background: none;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+}
+.shadowhunters.sheet.item h1 {
+  font-family: fantasy;
+  font-size: 2.2rem;
+}
+.shadowhunters.sheet.item h1 input {
+  margin: 0;
+  padding: 0;
+}
+.shadowhunters.sheet.item h2 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  background: black;
+  color: white;
+  padding-left: 0.5rem;
+}
+.shadowhunters.sheet.item .window-content {
+  background: none;
+  background-color: white;
+}
 .shadowhunters.sheet.item form {
   display: flex;
   flex-direction: column;
+  border: 1px dashed black;
+}
+.shadowhunters.sheet.item .sheet-header {
+  display: grid;
+  grid-template-columns: 4rem calc(100% - 4rem);
+  column-gap: 1rem;
+  padding: 0.5rem;
+}
+.shadowhunters.sheet.item .sheet-header .profile-img {
+  border: none;
+  margin: 0;
 }
 .shadowhunters.sheet.item .sheet-body {
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 10rem auto;
+  padding: 0.5rem;
+  column-gap: 1rem;
 }
-.shadowhunters.sheet.item .sheet-body .editor {
+.shadowhunters.sheet.item .sheet-body label {
+  align-self: center;
+}
+.shadowhunters.sheet.item .sheet-body select {
+  direction: rtl;
+  padding: 0 0.25rem;
+}
+.shadowhunters.sheet.item .sheet-body input {
+  text-align: right;
+  padding: 0 0.25rem;
+}
+.shadowhunters.sheet.item .sheet-body .sheet-body-attributes {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  align-content: start;
+  padding: 0 0.5rem;
+}
+.shadowhunters.sheet.item .sheet-body .sheet-body-attributes .attribute-line {
+  display: flex;
+  flex-direction: row;
+}
+.shadowhunters.sheet.item .sheet-body .sheet-body-attributes .attribute-line span {
+  min-width: 1rem;
+  text-align: center;
+  align-self: center;
+}
+.shadowhunters.sheet.item .sheet-body .sheet-body-description {
+  height: calc(100% - 2rem);
+}
+.shadowhunters.sheet.item .sheet-body .sheet-body-description .editor {
   height: 100%;
+  padding: 0 0.5rem;
 }

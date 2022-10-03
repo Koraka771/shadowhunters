@@ -1,9 +1,9 @@
 export const shadowhunters = {};
 
 shadowhunters.weaponTypes = {
-    melee: "shadowhunters.weapon.weaponType.melee",
-    ranged: "shadowhunters.weapon.weaponType.ranged",
-    thrown: "shadowhunters.weapon.weaponType.thrown"
+    melee: "shadowhunters.weaponType.melee",
+    ranged: "shadowhunters.weaponType.ranged",
+    thrown: "shadowhunters.weaponType.thrown"
 }
 
 shadowhunters.damageDice = {
@@ -13,4 +13,9 @@ shadowhunters.damageDice = {
     d8: "shadowhunters.dice.d8",
     d10: "shadowhunters.dice.d10",
     d12: "shadowhunters.dice.d12"
+}
+
+shadowhunters.spellTypes = {
+    damage: "shadowhunters.spellType.damage",
+    other: "shadowhunters.spellType.other"
 }
