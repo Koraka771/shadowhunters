@@ -1,0 +1,220 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+        <div>
+            <h1><input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h1>
+            <div class="header-stats">
+                <div class="stat">
+                    <label>{{localize "shadowhunters.class"}}:</label>
+                    <input class="class" type="text" name="system.class" value="{{actor.system.class}}">
+                </div>
+                <div class="stat">
+                    <label>{{localize "shadowhunters.level"}}:</label>
+                    <input type="text" data-dtype="number" name="system.level" value="{{actor.system.level}}">
+                </div>
+                <div class="stat">
+                    <label>{{localize "shadowhunters.xp"}}:</label>
+                    <input type="text" data-dtype="number" name="system.xp" value="{{actor.system.xp}}">
+                </div>
+                <div class="stat">
+                    <label>{{localize "shadowhunters.coin"}}:</label>
+                    <input type="text" data-dtype="number" name="system.coin" value="{{actor.system.coin}}">
+                </div>
+            </div>
+            <div class="header-description">
+                <label>{{localize "shadowhunters.background"}}:</label>
+                <input type="text" name="system.description" value="{{actor.system.description}}">
+            </div>
+        </div>
+    </header>
+    <div class="sheet-body">
+        <div class="sheet-body-main">
+            <div class="left">
+                <div class="hpdef">
+                    <div class="def">
+                        <h2>{{localize "shadowhunters.defense"}}</h2>
+                        <input type="text" data-dtype="number" name="system.defense" value="{{actor.system.defense}}" readonly disabled>
+                    </div>
+                    <div class="hp">
+                        <h2>{{localize "shadowhunters.hitpoints"}}</h2>
+                        <div class="hprow">
+                            <input type="text" data-dtype="Number" name="system.hp.value" value="{{actor.system.hp.value}}">
+                            <span>|</span>
+                            <input type="text" data-dtype="Number" name="system.hp.max" value="{{actor.system.hp.max}}">
+                        </div>
+                        <div class="hpdescrow">
+                            <span>Current</span>
+                            <span>Maximum</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <h2>{{localize "shadowhunters.fatedice"}}</h2>
+                <div class="fatedice">
+                    {{#times actor.system.fate}}
+                        <i class="fa-solid fa-dice-six"></i>
+                    {{/times}}
+                    {{#10-times actor.system.fate}}
+                        <i class="fa-solid fa-dice-six spent"></i>
+                    {{/10-times}}
+                </div>
+                <h2>{{localize "shadowhunters.corruption"}}</h2>
+                <div class="corruption">
+                    {{#times actor.system.corruption}}
+                        <i class="fa-solid fa-skull"></i>
+                    {{/times}}
+                    {{#10-times actor.system.corruption}}
+                        <i class="fa-solid fa-skull spent"></i>
+                    {{/10-times}}
+                </div>
+            </div>
+        </div>
+        <div class="sheet-body-main">
+            <div class="left">
+                <div>
+                    <h2>{{localize "shadowhunters.attributes"}}</h2>
+                    <div class="attributes">
+
+                        <input type="text" data-dtype="Number" name="system.str" value="{{actor.system.str}}">
+                        <a class="attribute-name attribute-roll" data-attribute="str">{{localize "shadowhunters.attributes_short.str"}}</a>
+                        <div class="attributes-desc">
+                            <span>{{localize "shadowhunters.weaponType.melee"}}</span>
+                            <span>{{localize "shadowhunters.damage"}}</span>
+                            <span>{{localize "shadowhunters.liftBendCarry"}}</span>
+                        </div>
+                        
+                        <input type="text" data-dtype="Number" name="system.dex" value="{{actor.system.dex}}">
+                        <a class="attribute-name attribute-roll" data-attribute="dex">{{localize "shadowhunters.attributes_short.dex"}}</a>
+                        <div class="attributes-desc">
+                            <span>{{localize "shadowhunters.defense"}}</span>
+                            <span>{{localize "shadowhunters.stealth"}}</span>
+                            <span>{{localize "shadowhunters.thievery"}}</span>
+                        </div>
+                        
+                        <input type="text" data-dtype="Number" name="system.con" value="{{actor.system.con}}">
+                        <a class="attribute-name attribute-roll" data-attribute="con">{{localize "shadowhunters.attributes_short.con"}}</a>
+                        <div class="attributes-desc">
+                            <span>{{localize "shadowhunters.hitpoints"}}</span>
+                            <span>{{localize "shadowhunters.encumberance"}}</span>
+                            <span>{{localize "shadowhunters.toughness"}}</span>
+                        </div>
+                        
+                        <input type="text" data-dtype="Number" name="system.int" value="{{actor.system.int}}">
+                        <a class="attribute-name attribute-roll" data-attribute="int">{{localize "shadowhunters.attributes_short.int"}}</a>
+                        <div class="attributes-desc">
+                            <span>{{localize "shadowhunters.spells"}}</span>
+                            <span>{{localize "shadowhunters.knowledge"}}</span>
+                            <span>{{localize "shadowhunters.readAndWrite"}}</span>
+                        </div>
+                        
+                        <input type="text" data-dtype="Number" name="system.wis" value="{{actor.system.wis}}">
+                        <a class="attribute-name attribute-roll" data-attribute="wis">{{localize "shadowhunters.attributes_short.wis"}}</a>
+                        <div class="attributes-desc">
+                            <span>{{localize "shadowhunters.rangedAttack"}}</span>
+                            <span>{{localize "shadowhunters.perception"}}</span>
+                            <span>{{localize "shadowhunters.saveVsSpells"}}</span>
+                        </div>
+                        
+                        <input type="text" data-dtype="Number" name="system.cha" value="{{actor.system.cha}}">
+                        <a class="attribute-name attribute-roll" data-attribute="cha">{{localize "shadowhunters.attributes_short.cha"}}</a>
+                        <div class="attributes-desc">
+                            <span>{{localize "shadowhunters.charm"}}</span>
+                            <span>{{localize "shadowhunters.persuade"}}</span>
+                            <span>{{localize "shadowhunters.perform"}}</span>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <div class="right">
+                <div class="section-header">
+                    <h2>{{localize "shadowhunters.weapons"}}</h2>
+                    <a class="item-control" data-action="create" data-type="weapon"><i class="fas fa-plus"></i></a>
+                </div>
+                <ol class="item-list">
+                    {{#each weapons as |item id|}}
+                        <li class="item" data-item-id="{{item._id}}">
+                            <a class="item-name">{{item.name}}</a>
+                            <div class="item-buttons">
+
+                            </div>
+                            <div class="item-controls">
+                                <a class="item-control" data-action="edit"><i class="fas fa-edit"></i></a>
+                                <a class="item-control" data-action="delete"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                    {{/each}}
+                </ol>
+                <div class="section-header">
+                    <h2>{{localize "shadowhunters.armor"}}</h2>
+                    <a class="item-control" data-action="create" data-type="armor"><i class="fas fa-plus"></i></a>
+                </div>
+                <ol class="item-list">
+                    {{#each armor as |item id|}}
+                        <li class="item" data-item-id="{{item._id}}">
+                            <a class="item-name">{{item.name}}</a>
+                            <div class="item-buttons">
+
+                            </div>
+                            <div class="item-controls">
+                                <a class="item-control" data-action="edit"><i class="fas fa-edit"></i></a>
+                                <a class="item-control" data-action="delete"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                    {{/each}}
+                </ol>
+                <div class="section-header">
+                    <h2>{{localize "shadowhunters.equipment"}}</h2>
+                    <a class="item-control" data-action="create" data-type="equipment"><i class="fas fa-plus"></i></a>
+                </div>
+                <ol class="item-list">
+                    {{#each equipment as |item id|}}
+                        <li class="item" data-item-id="{{item._id}}">
+                            <a class="item-name">{{item.name}}</a>
+                            <div class="item-controls">
+                                <a class="item-control" data-action="edit"><i class="fas fa-edit"></i></a>
+                                <a class="item-control" data-action="delete"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                    {{/each}}
+                </ol>
+            </div>
+        </div>
+        <div class="sheet-body-main">
+            <div class="left">
+                <div class="section-header">
+                    <h2>{{localize "shadowhunters.features"}}</h2>
+                    <a class="item-control" data-action="create" data-type="feat"><i class="fas fa-plus"></i></a>
+                </div>
+                <ol class="item-list">
+                    {{#each feats as |item id|}}
+                        <li class="item" data-item-id="{{item._id}}">
+                            <a class="item-name">{{item.name}}</a>
+                            <div class="item-controls">
+                                <a class="item-control" data-action="edit"><i class="fas fa-edit"></i></a>
+                                <a class="item-control" data-action="delete"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                    {{/each}}
+                </ol>  
+            </div>
+            <div class="right">
+                <div class="section-header">
+                    <h2>{{localize "shadowhunters.spells"}}</h2>
+                    <a class="item-control" data-action="create" data-type="spell"><i class="fas fa-plus"></i></a>
+                </div>
+                <ol class="item-list">
+                    {{#each spells as |item id|}}
+                        <li class="item" data-item-id="{{item._id}}">
+                            <a class="item-name">{{item.name}}</a>
+                            <div class="item-controls">
+                                <a class="item-control" data-action="edit"><i class="fas fa-edit"></i></a>
+                                <a class="item-control" data-action="delete"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                    {{/each}}
+                </ol>
+            </div>
+        </div>
+    </div>
+</form>

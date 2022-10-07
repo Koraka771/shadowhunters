@@ -84,3 +84,287 @@
   height: 100%;
   padding: 0 0.5rem;
 }
+.shadowhunters.sheet.character {
+  min-width: 700px;
+  min-height: 800px;
+}
+.shadowhunters.sheet.character input {
+  border: 1px dotted black;
+  background: lightgrey;
+  border-radius: 0;
+}
+.shadowhunters.sheet.character h1 {
+  font-family: fantasy;
+  font-size: 2.2rem;
+  width: calc(100% - 1rem);
+}
+.shadowhunters.sheet.character h1 input {
+  margin: 0;
+  padding: 0 0 0 0.5rem;
+  width: 100%;
+}
+.shadowhunters.sheet.character h2 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  background: black;
+  color: white;
+  padding-left: 0.5rem;
+}
+.shadowhunters.sheet.character .section-header {
+  display: flex;
+  justify-content: space-between;
+  background: black;
+  color: white;
+  font-size: 1.1rem;
+  padding-right: 0.5rem;
+  height: 1.4rem;
+}
+.shadowhunters.sheet.character .window-content {
+  background: none;
+  background-color: white;
+}
+.shadowhunters.sheet.character form {
+  display: flex;
+  flex-direction: column;
+  border: 1px dashed black;
+}
+.shadowhunters.sheet.character .sheet-header {
+  display: grid;
+  grid-template-columns: 7.25rem calc(100% - 7.25rem);
+  column-gap: 1rem;
+  padding: 0.5rem;
+}
+.shadowhunters.sheet.character .sheet-header .profile-img {
+  border: none;
+  margin: 0;
+  height: 7.25rem;
+  width: 7.25rem;
+}
+.shadowhunters.sheet.character .sheet-header .header-stats {
+  display: grid;
+  grid-template-columns: calc(40% - 0.5rem) calc(20% - 0.25rem) calc(17% - 0.25rem) calc(23% - 0.5rem);
+  grid-column-gap: 0.5rem;
+  max-width: calc(100% - 1rem);
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+.shadowhunters.sheet.character .sheet-header .header-stats .stat {
+  display: flex;
+  flex-direction: row;
+}
+.shadowhunters.sheet.character .sheet-header .header-stats .stat label {
+  display: flex;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+.shadowhunters.sheet.character .sheet-header .header-stats .stat input {
+  display: flex;
+  text-align: center;
+}
+.shadowhunters.sheet.character .sheet-header .header-stats .stat input.class {
+  text-align: left;
+}
+.shadowhunters.sheet.character .sheet-header .header-description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: calc(100% - 1rem);
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+.shadowhunters.sheet.character .sheet-header .header-description label {
+  display: flex;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+.shadowhunters.sheet.character .sheet-header .header-description input {
+  display: flex;
+  text-align: left;
+}
+.shadowhunters.sheet.character .sheet-body {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-column-gap: 1rem;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .left {
+  display: flex;
+  flex-direction: column;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .left .hpdef {
+  display: grid;
+  grid-template-columns: calc(35% - 0.5rem) calc(65% - 0.5rem);
+  grid-column-gap: 1rem;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .left .hpdef .def {
+  display: flex;
+  flex-direction: column;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .left .hpdef .def input {
+  font-size: 3rem;
+  height: 5.5rem;
+  border: 1px dotted black;
+  margin: 0 0.5rem 0.5rem 0.5rem;
+  text-align: center;
+  max-width: fit-content;
+  background-color: #efefef;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .left .hpdef .hp {
+  display: flex;
+  flex-direction: column;
+  font-size: 3rem;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .left .hpdef .hp .hprow {
+  display: flex;
+  flex-direction: row;
+  margin: 0 0.5rem;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .left .hpdef .hp .hprow span {
+  min-width: 1rem;
+  text-align: center;
+  align-self: center;
+  font-size: 2rem;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .left .hpdef .hp .hprow input {
+  font-size: 3rem;
+  height: 5.5rem;
+  border: 1px dotted black;
+  margin: 0;
+  text-align: center;
+  padding: 0;
+  background: lightgrey;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .left .hpdef .hp .hpdescrow {
+  font-size: 0.7rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  margin: 0 1.2rem 0.5rem 1.2rem;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .left .attributes {
+  display: grid;
+  grid-template-columns: 25% 25% 50%;
+  list-style: none;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .left .attributes .attributes-desc {
+  display: flex;
+  flex-direction: column;
+  background: #efefef;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem;
+  font-size: 0.65rem;
+  margin-right: 0.5rem;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .left .attributes input {
+  font-size: 2rem;
+  height: 3rem;
+  border: 1px dotted black;
+  margin: 0 0.5rem 0.5rem 0.5rem;
+  text-align: center;
+  padding: 0;
+  background: lightgrey;
+  max-width: fit-content;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .left .attributes .attribute-name {
+  font-size: 2rem;
+  align-self: center;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  margin-right: 0.5rem;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .left .item-list {
+  display: grid;
+  grid-template-columns: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem 0;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .left .item-list .item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 0.25rem;
+  height: 1.5rem;
+  align-items: center;
+  padding: 0 0.5rem;
+  background: lightgrey;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .left .item-list .item-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80%;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .right {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 1rem);
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .right .fatedice {
+  font-size: 2rem;
+  margin: 0 0.25rem 0.25rem 0.25rem;
+  text-align: center;
+  color: darkviolet;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .right .fatedice .spent {
+  color: lightgrey;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .right .corruption {
+  font-size: 1.8rem;
+  margin: 0 0.25rem 0.25rem 0.25rem;
+  text-align: center;
+  color: crimson;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .right .corruption .spent {
+  color: lightgrey;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .right .coin {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .right .coin label {
+  margin-right: 1rem;
+  margin-left: 0.5rem;
+  width: 50%;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .right .coin input {
+  text-align: right;
+  width: 50%;
+  margin-right: 0.5rem;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .right .item-list {
+  display: grid;
+  grid-template-columns: calc(50% - 0.125rem) calc(50% - 0.125rem);
+  grid-column-gap: 0.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem 0;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .right .item-list .item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 0.25rem;
+  height: 1.5rem;
+  align-items: center;
+  padding: 0 0.5rem;
+  background: lightgrey;
+}
+.shadowhunters.sheet.character .sheet-body .sheet-body-main .right .item-list .item-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80%;
+}
+.chat-message .chat-card.item .card-header h1 {
+  font-family: fantasy;
+  font-size: 2rem;
+  border-bottom: 2px solid black;
+}

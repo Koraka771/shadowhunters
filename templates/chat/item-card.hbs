@@ -1,0 +1,20 @@
+<div class="chat-card item" data-item-id="{{_id}}" data-owner-id="{{owner}}">
+    <div class="header">
+        <h1>{{name}}</h1>
+    </div>
+    <div class="description">
+        {{{ system.description }}}
+    </div>
+    <div class="weapon-buttons">
+        {{#if (eq type "weapon")}}
+        <button class="attack">ATTACK</button>
+        <button class="damage">DAMAGE</button>
+        {{/if}}
+    </div>
+    {{#if (eq type "spell")}}
+    <button class="spellCheck">SPELLCHECK</button>
+    {{#if (eq system.spellType "damage")}}
+    <button class="damage">DAMAGE</button>
+    {{/if}}
+    {{/if}}
+</div>

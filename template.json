@@ -1,7 +1,37 @@
 {
-    "Actor": {},
+    "Actor": {
+        "types": ["player","npc"],
+        "templates": {
+            "common": {
+                "description": "",
+                "hp": {
+                    "value": 0,
+                    "max": 0
+                },
+                "defense": 10,
+                "str": 0,
+                "dex": 0,
+                "con": 0,
+                "int": 0,
+                "wis": 0,
+                "cha": 0
+            }
+        },
+        "player": {
+            "templates": ["common"],
+            "class": "",
+            "level": 1,
+            "xp": 0,
+            "coin": 0,
+            "corruption": 0,
+            "fate": 0
+        },
+        "npc": {
+            "templates": ["common"]
+        }
+    },
     "Item": {
-        "types": ["weapon","armor","equipment","spell"],
+        "types": ["weapon","armor","equipment","spell","feat"],
         "templates": {
             "common": {
                 "description": "",
@@ -10,12 +40,14 @@
         },
         "weapon": {
             "templates": ["common"],
-            "weaponType": "Melee",
-            "damage": "d6"
+            "weaponType": "melee",
+            "damage": "d6",
+            "equipped": false
         },
         "armor": {
             "templates": ["common"],
-            "defense": 0
+            "defense": 0,
+            "equipped": false
         },
         "equipment": {
             "templates": ["common"],
@@ -26,8 +58,12 @@
         },
         "spell": {
             "description": "",
-            "spellType": "Damage",
+            "spellType": "damage",
             "damage": "2d6"
+        },
+        "feat": {
+            "description": "",
+            "featClass": ""
         }
     }
 }

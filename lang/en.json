@@ -1,6 +1,20 @@
 {
     "shadowhunters": {
+        "armor": "Armor",
         "attributes": "Attributes",
+        "attributes_short": {
+            "str": "STR",
+            "dex": "DEX",
+            "con": "CON",
+            "int": "INT",
+            "wis": "WIS",
+            "cha": "CHA"
+        },
+        "background": "Background",
+        "charm": "Charm",
+        "class": "Class",
+        "coin": "Coin",
+        "corruption": "Corruption",
         "cost": "Cost",
         "damage": "Damage",
         "defense": "Defense",
@@ -13,16 +27,39 @@
             "d10": "d10",
             "d12": "d12"
         },
+        "encumberance": "Encumberance",
+        "equipment": "Equipment",
+        "equipped": "Equipped",
+        "fatedice": "Dice of Fate",
+        "featClass": "Klasse",
+        "features": "Features",
+        "hitpoints": "Hitpoints",
+        "itemNew": "New item",
+        "knowledge": "Knowledge",
+        "level": "Level",
+        "liftBendCarry": "Lift/Bend/Carry",
+        "perception": "Perception",
+        "perform": "Perform",
+        "persuade": "Persuade",
         "quantity": "Quantity",
+        "rangedAttack": "Ranged attack",
+        "readAndWrite": "Read & write",
+        "saveVsSpells": "Save vs. spells",
+        "spells": "Spells",
         "spellType": {
             "damage": "Damage",
             "other": "Other"
         },
+        "stealth": "Stealth",
+        "thievery": "Thievery",
+        "toughness": "Toughness",
         "type": "Type",
+        "weapons": "Weapons",
         "weaponType": {
             "melee": "Melee",
             "ranged": "Ranged",
             "thrown": "Thrown"
-        }
+        },
+        "xp": "XP"
     }
 }
