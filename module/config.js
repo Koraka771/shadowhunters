@@ -19,3 +19,19 @@ shadowhunters.spellTypes = {
     damage: "shadowhunters.spellType.damage",
     other: "shadowhunters.spellType.other"
 }
+
+shadowhunters.attributesLong = {
+    "str": "shadowhunters.attributes_long.str",
+    "dex": "shadowhunters.attributes_long.dex",
+    "con": "shadowhunters.attributes_long.con",
+    "int": "shadowhunters.attributes_long.int",
+    "wis": "shadowhunters.attributes_long.wis",
+    "cha": "shadowhunters.attributes_long.cha"
+}
+
+shadowhunters.rolltypes = {
+    "advantage": "shadowhunters.rolltypes.advantage",
+    "disadvantage": "shadowhunters.rolltypes.disadvantage",
+    "normal": "shadowhunters.rolltypes.normal",
+    "crit": "shadowhunters.criticalHit"
+}

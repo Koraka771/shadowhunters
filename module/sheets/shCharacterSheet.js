@@ -1,4 +1,5 @@
 import * as Dice from "../dice.js";
+import * as shItem from "../shItem.js";
 
 export default class shCharacterSheet extends ActorSheet {
     static get defaultOptions() {
@@ -32,9 +33,18 @@ export default class shCharacterSheet extends ActorSheet {
         html.find(".corruption").click(this._onCorruptionClick.bind(this));
         html.find(".corruption").contextmenu(this._onCorruptionRightClick.bind(this));
 
-        html.find(".attribute-roll").click(this._onAttributeRoll.bind(this));
+        html.find(".attribute-name").click(this._onAttributeName.bind(this));
         html.find(".item-name").click(this._onItemName.bind(this));
 
+        if (this.actor.owner) {
+            let handler = ev => this._onDragStart(ev);
+            // Find all items on the character sheet.
+            html.find('li.item').each((i, li) => {
+              // Add draggable attribute and dragstart listener.
+              li.setAttribute("draggable", true);
+              li.addEventListener("dragstart", handler, false);
+            });
+          }
     }
 
     _onItemName(event) {
@@ -43,17 +53,14 @@ export default class shCharacterSheet extends ActorSheet {
         const li = button.closest(".item");
         const item = this.actor.items.get(li.dataset.itemId);
 
-        Dice.ItemRoll({item})
+        shItem.ItemCard(item, this.actor)
     }
 
-    _onAttributeRoll(event) {
+    _onAttributeName(event) {
         event.preventDefault();
-        let attributeID = event.currentTarget.dataset.attribute;
+        let attribute = event.currentTarget.dataset.attribute;
 
-        Dice.AttributeRoll({
-            attributeID: attributeID,
-            actor: this.actor
-        })
+        Dice.AttributeDialog(attribute, this.actor)
     }
     
     _onItemControl(event) {
@@ -66,8 +73,8 @@ export default class shCharacterSheet extends ActorSheet {
         // Handle different actions
         switch ( button.dataset.action ) {
         case "create": {
-            const cls = getDocumentClass("Item");
-            return cls.create({name: game.i18n.localize("shadowhunters.itemNew"), type: button.dataset.type}, {parent: this.actor});
+            const itemtype = button.dataset.type;
+            return createItem(itemtype, this.actor);
         };
         case "edit": {
             const item = this.actor.items.get(li.dataset.itemId);
@@ -77,50 +84,41 @@ export default class shCharacterSheet extends ActorSheet {
             const item = this.actor.items.get(li.dataset.itemId);
             return item.delete();
         };
-        }
+        case "equip": {
+            const item = this.actor.items.get(li.dataset.itemId);
+            return item.update({system: {equipped: !item.system.equipped}});
+        };
+        };
     }
 
     _onFateDiceClick(event) {
-        let newValue = 0;
         if (this.actor.system.fate < 10) {
-            newValue = this.actor.system.fate + 1;
-        } else {
-            newValue = this.actor.system.fate;
-        }
-        
-        return this.actor.update({system: {fate: newValue}});
+            this.actor.addFate();
+        };
     }
 
     _onFateDiceRightClick(event) {
-        let newValue = 0;
         if (this.actor.system.fate > 0) {
-            newValue = this.actor.system.fate - 1;
-        } else {
-            newValue = this.actor.system.fate;
-        }
-
-        return this.actor.update({system: {fate: newValue}});
+            this.actor.deductFate();
+        };
     }
 
     _onCorruptionClick(event) {
-        let newValue = 0;
         if (this.actor.system.corruption < 10) {
-            newValue = this.actor.system.corruption + 1;
-        } else {
-            newValue = this.actor.system.corruption;
-        }
-        
-        return this.actor.update({system: {corruption: newValue}});
+            this.actor.addCorruption();
+        };
     }
 
     _onCorruptionRightClick(event) {
-        let newValue = 0;
         if (this.actor.system.corruption > 0) {
-            newValue = this.actor.system.corruption - 1;
-        } else {
-            newValue = this.actor.system.corruption;
-        }
-
-        return this.actor.update({system: {corruption: newValue}});
+            this.actor.deductCorruption();
+        };
     }
+}
+
+async function createItem (itemtype, actor) {                
+    const cls = getDocumentClass("Item");
+    let item = await cls.create({name: game.i18n.localize("shadowhunters.itemNew"), type: itemtype}, {parent: actor});
+    console.log(item);
+    return item.sheet.render(true);
 }

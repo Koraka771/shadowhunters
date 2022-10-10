@@ -1,0 +1,53 @@
+.chat-message {
+    background: none;
+    background-color: white;
+
+    .hidden {
+        display: hidden;
+    }
+
+    .message-header {
+        .message-sender {
+            white-space: normal;
+        }
+    }
+
+    .chat-card {
+        h1 {
+            font-family: fantasy;
+            font-size: 1.5rem;
+            border-bottom: 2px solid black;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .result {
+            font-size: 3rem;
+            text-align: center;
+        }
+        .weapon-attack, .spell-check {
+            margin-bottom: .25rem;
+        }
+        button {
+            color: white;
+            background-color: crimson;
+        }
+        button.fate-dice {
+            background-color: darkviolet;
+            color: white;
+        }
+        .details {
+            margin-bottom: .5rem;
+            margin-left: 2px;
+            padding: .5rem;
+            background-color: lightgrey;
+            border: 1px dashed black;
+            .row {
+                font-size: .8rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        } 
+    }
+}

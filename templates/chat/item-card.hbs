@@ -1,20 +1,30 @@
 <div class="chat-card item" data-item-id="{{_id}}" data-owner-id="{{owner}}">
-    <div class="header">
-        <h1>{{name}}</h1>
+    <h1>
+        <span>{{name}}</span>
+        {{#if (eq type "equipment")}}{{#if (gt system.quantity.max 1)}}
+            <span>({{system.quantity.value}} / {{system.quantity.max}})</span>
+        {{/if}}{{/if}}
+    </h1>
+
+    <div class="description">{{{system.description}}}</div>
+
+
+    {{#if (eq type "weapon")}}
+    <div class="weapon-attack">
+        <button>{{localize "shadowhunters.attack"}}</button>
     </div>
-    <div class="description">
-        {{{ system.description }}}
+    <div class="weapon-damage">
+        <button>{{localize "shadowhunters.damage"}}</button>
     </div>
-    <div class="weapon-buttons">
-        {{#if (eq type "weapon")}}
-        <button class="attack">ATTACK</button>
-        <button class="damage">DAMAGE</button>
-        {{/if}}
-    </div>
+    {{/if}}
     {{#if (eq type "spell")}}
-    <button class="spellCheck">SPELLCHECK</button>
+    <div class="spell-check">
+        <button>{{localize "shadowhunters.spellcheck"}}</button>
+    </div>
     {{#if (eq system.spellType "damage")}}
-    <button class="damage">DAMAGE</button>
+    <div class="spell-damage">
+        <button>{{localize "shadowhunters.damage"}}</button>
+    </div>
     {{/if}}
     {{/if}}
 </div>

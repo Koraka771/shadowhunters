@@ -1,59 +1,74 @@
 import * as Dice from "./dice.js";
 
 export function addChatListeners(html) {
-    html.on('click', '.weapon-buttons .attack', onAttack);
-    html.on('click', '.weapon-buttons .damage', onDamage);
-    html.on('click', '.damage .fate-dice', onDamageFateDice);
+    html.on('click', '.weapon-attack button', onWeaponAttack);
+    html.on('click', '.weapon-damage button', onWeaponDamage);
+    html.on('click', '.spell-check button', onSpellCheck);
+    html.on('click', '.spell-damage button', onSpellDamage);
+    html.on('click', '.fate-dice', onFateDice);
+    html.on('click', '.result', onResult);
 }
 
-function onAttack(event) {
+function onWeaponAttack(event) {
     const button = event.currentTarget;
     const card = button.closest(".item")
     let attacker = game.actors.get(card.dataset.ownerId);
     let weapon = attacker.items.get(card.dataset.itemId);
 
-    Dice.Attack(attacker, weapon);
+    Dice.AttackDialog(attacker, weapon);
 }
 
-function onDamage(event) {
+function onWeaponDamage(event) {
     const button = event.currentTarget;
     const card = button.closest(".item")
     let attacker = game.actors.get(card.dataset.ownerId);
     let weapon = attacker.items.get(card.dataset.itemId);
 
-    Dice.Damage(attacker, weapon);
+    Dice.DamageDialog(attacker, weapon);
 }
 
-async function onDamageFateDice(event) {
+function onSpellCheck(event) {
     const button = event.currentTarget;
-    const card = button.closest(".damage")
+    const card = button.closest(".item")
+    let actor = game.actors.get(card.dataset.ownerId);
+    let spell = actor.items.get(card.dataset.itemId);
+
+    Dice.SpellCheckDialog(actor, spell);
+}
+
+function onSpellDamage(event) {
+    const button = event.currentTarget;
+    const card = button.closest(".item")
+    let actor = game.actors.get(card.dataset.ownerId);
+    let spell = actor.items.get(card.dataset.itemId);
+
+    Dice.SpellDamageDialog(actor, spell);
+}
+
+
+async function onFateDice(event) {
+    const button = event.currentTarget;
+    let chatmessage = game.messages.get(button.closest(".chat-message").dataset.messageId);
+    let cardtype = "";
+    return await Dice.FateDiceRoll(chatmessage);
+}
+
+async function onResult(event) {
+
+    const button = event.currentTarget;
     const message = button.closest(".chat-message");
-
-    console.log(message.dataset);
-
     let chatmessage = game.messages.get(message.dataset.messageId);
+    let oldContent = chatmessage.content;
+    let newContent = "";
 
-    console.log(chatmessage);
+    // CHECK THIS: https://github.com/javierriveracastro/betteroll-swade/blob/15ca6af5e61532781dc5ac065cd03047b53bdf6f/betterrolls-swade2/scripts/cards_common.js#L377
 
-    console.log(chatmessage.flags.shadowhunters.damageRollTotal);
+    if (oldContent.includes('<div class="details hidden">')) {
+        newContent = oldContent.replace('<div class="details hidden">', '<div class="details">');
+    } else {
+        newContent = oldContent.replace('<div class="details">', '<div class="details hidden">');
+    }
 
-    // Roll Fatedice
-    let fateDiceResult = 99;
+    chatmessage.update({content: newContent});
 
-    // update Flag
-    await chatmessage.setFlag("shadowhunters", "damageRollTotal", fateDiceResult);
-
-    // UPDATE MESSAGE
-
-    let chatTemplate = "systems/shadowhunters/templates/chat/damage-card.hbs"
-
-    let cardData = {
-        rollTotal: fateDiceResult
-    };
-
-    let new_content = await renderTemplate(chatTemplate, cardData);    
-
-    chatmessage.update({content: new_content});
 }
-
-

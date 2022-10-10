@@ -1,5 +1,95 @@
 {
     "shadowhunters": {
-        
+        "armor": "Rüstung",
+        "attack": "Angriff",
+        "attackWith": "Angriff mit ",
+        "attributeCheck": "Probe",
+        "attributes": "Attribute",
+        "attributes_long": {
+            "str": "Stärke",
+            "dex": "Geschicklichkeit",
+            "con": "Konstitution",
+            "int": "Intelligenz",
+            "wis": "Weisheit",
+            "cha": "Charisma"
+        },
+        "attributes_short": {
+            "str": "STÄ",
+            "dex": "GES",
+            "con": "KON",
+            "int": "INT",
+            "wis": "WEI",
+            "cha": "CHA"
+        },
+        "background": "Hintergrund",
+        "buttonFateDice": "Schicksalswürfel",
+        "chooseRolltype": "Wie soll gewürfelt werden?",
+        "charm": "Charme",
+        "class": "Klasse",
+        "coin": "Münzen",
+        "corruption": "Korruption",
+        "corruptionGained": "{actor} hat Korruption hinzugewonnen.",
+        "corruptionLost": "{actor} hat Korruption verloren.",
+        "cost": "Kosten",
+        "criticalHit": "Kritischer Treffer",
+        "damage": "Schaden",
+        "damageWith": "Schaden mit ",
+        "defense": "Abwehr",
+        "description": "Beschreibung",
+        "dice": {
+            "d2": "W2",
+            "d4": "W4",
+            "d6": "W6",
+            "d8": "W8",
+            "d10": "W10",
+            "d12": "W12"
+        },
+        "encumberance": "Traglast",
+        "equipment": "Ausrüstung",
+        "equipped": "Ausgerüstet",
+        "fatedice": "Schicksalswürfel",
+        "fateDiceReceived": "{actor} hat einen Schicksalswürfel erhalten.",
+        "fateDiceSpent": "{actor} hat einen Schicksalswürfel verloren.",
+        "featClass": "Klasse",
+        "features": "Fähigkeiten",
+        "hitpoints": "Trefferpunkte",
+        "itemNew": "Neuer Gegenstand",
+        "knowledge": "Wissen",
+        "level": "Stufe",
+        "liftBendCarry": "Heben/Verbiegen/Tragen",
+        "noFateDiceAvailable": "Keine Schicksalswürfel verfügbar für diesen Akteur.",
+        "perception": "Wahrnehmung",
+        "perform": "Schauspielerei",
+        "persuade": "Überreden",
+        "quantity": "Anzahl",
+        "rangedAttack": "Fernkampfangriff & Schaden",
+        "readAndWrite": "Lesen & Schreiben",
+        "resultDetail": "Ergebnis detailliert",
+        "rollFormula": "Wurfformel",
+        "rollMode": "Wurfmodus",
+        "rolltypes": {
+            "advantage": "Vorteil",
+            "disadvantage": "Nachteil",
+            "normal": "Normal"
+        },
+        "saveVsSpells": "Abwehr von Zaubern",
+        "spellcheck": "Spruchprobe",
+        "spellcheckFor": "Spruchprobe für ",
+        "spells": "Zaubersprüche",
+        "spellType": {
+            "damage": "Schaden",
+            "other": "Sonstige"
+        },
+        "stealth": "Heimlichkeit",
+        "thievery": "Diebstahl",
+        "toughness": "Zähigkeit & Ausdauer",
+        "type": "Typ",
+        "weapons": "Waffen",
+        "weaponType": {
+            "melee": "Nahkampf",
+            "ranged": "Schusswaffe",
+            "thrown": "Wurfwaffe"
+        },
+        "xp": "EP"
     }
 }

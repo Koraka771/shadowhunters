@@ -361,10 +361,63 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 80%;
+  max-width: 70%;
 }
-.chat-message .chat-card.item .card-header h1 {
+.chat-message {
+  background: none;
+  background-color: white;
+}
+.chat-message .hidden {
+  display: hidden;
+}
+.chat-message .message-header .message-sender {
+  white-space: normal;
+}
+.chat-message .chat-card h1 {
   font-family: fantasy;
-  font-size: 2rem;
+  font-size: 1.5rem;
   border-bottom: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.chat-message .chat-card .result {
+  font-size: 3rem;
+  text-align: center;
+}
+.chat-message .chat-card .weapon-attack,
+.chat-message .chat-card .spell-check {
+  margin-bottom: 0.25rem;
+}
+.chat-message .chat-card button {
+  color: white;
+  background-color: crimson;
+}
+.chat-message .chat-card button.fate-dice {
+  background-color: darkviolet;
+  color: white;
+}
+.chat-message .chat-card .details {
+  margin-bottom: 0.5rem;
+  margin-left: 2px;
+  padding: 0.5rem;
+  background-color: lightgrey;
+  border: 1px dashed black;
+}
+.chat-message .chat-card .details .row {
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.dialog .window-content {
+  background: none;
+  background-color: white;
+}
+.dialog .window-content .dialog-button,
+.dialog .window-content button.default {
+  color: white;
+  background: none;
+  background-color: crimson;
+  border: 1px solid lightgrey;
 }

@@ -14,17 +14,17 @@
                 "con": 0,
                 "int": 0,
                 "wis": 0,
-                "cha": 0
+                "cha": 0,
+                "class": "",
+                "level": 1,
+                "xp": 0,
+                "coin": 0,
+                "corruption": 0,
+                "fate": 0
             }
         },
         "player": {
-            "templates": ["common"],
-            "class": "",
-            "level": 1,
-            "xp": 0,
-            "coin": 0,
-            "corruption": 0,
-            "fate": 0
+            "templates": ["common"]
         },
         "npc": {
             "templates": ["common"]

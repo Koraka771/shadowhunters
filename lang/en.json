@@ -1,7 +1,18 @@
 {
     "shadowhunters": {
         "armor": "Armor",
+        "attack": "Attack",
+        "attackWith": "Attack with ",
+        "attributeCheck": "Check",
         "attributes": "Attributes",
+        "attributes_long": {
+            "str": "Strength",
+            "dex": "Dexterity",
+            "con": "Constitution",
+            "int": "Intelligence",
+            "wis": "Wisdom",
+            "cha": "Charisma"
+        },
         "attributes_short": {
             "str": "STR",
             "dex": "DEX",
@@ -11,12 +22,18 @@
             "cha": "CHA"
         },
         "background": "Background",
+        "buttonFateDice": "Fate Dice",
         "charm": "Charm",
+        "chooseRolltype": "Choose how to roll:",
         "class": "Class",
         "coin": "Coin",
         "corruption": "Corruption",
+        "corruptionGained": "{actor} gained Corruption.",
+        "corruptionLost": "{actor} lost Corruption.",
         "cost": "Cost",
+        "criticalHit": "Critical Hit",
         "damage": "Damage",
+        "damageWith": "Damage with ",
         "defense": "Defense",
         "description": "Description",
         "dice": {
@@ -31,6 +48,8 @@
         "equipment": "Equipment",
         "equipped": "Equipped",
         "fatedice": "Dice of Fate",
+        "fateDiceReceived": "{actor} received a Fate Die.",
+        "fateDiceSpent": "{actor} spent a Fate Die.",
         "featClass": "Klasse",
         "features": "Features",
         "hitpoints": "Hitpoints",
@@ -38,13 +57,24 @@
         "knowledge": "Knowledge",
         "level": "Level",
         "liftBendCarry": "Lift/Bend/Carry",
+        "noFateDiceAvailable": "There are no Fate Dice available for this actor.",
         "perception": "Perception",
         "perform": "Perform",
         "persuade": "Persuade",
         "quantity": "Quantity",
         "rangedAttack": "Ranged attack",
         "readAndWrite": "Read & write",
+        "resultDetail": "Result detail",
+        "rollFormula": "Roll formula",
+        "rollMode": "Roll mode",
+        "rolltypes": {
+            "advantage": "Advantage",
+            "disadvantage": "Disadvantage",
+            "normal": "Normal"
+        },
         "saveVsSpells": "Save vs. spells",
+        "spellcheck": "Spellcheck",
+        "spellcheckFor": "Spellcheck for ",
         "spells": "Spells",
         "spellType": {
             "damage": "Damage",
