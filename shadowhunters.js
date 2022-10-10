@@ -2,6 +2,7 @@ import { shadowhunters } from "./module/config.js";
 import * as Chat from "./module/chat.js";
 import shItemSheet from "./module/sheets/shItemSheet.js";
 import shCharacterSheet from "./module/sheets/shCharacterSheet.js";
+import shNpcSheet from "./module/sheets/shNpcSheet.js";
 import shActor from "./module/shActor.js";
 import shItem from "./module/shItem.js";
 import * as shItemFunctions from "./module/shItem.js";
@@ -24,7 +25,14 @@ Hooks.once("init", function() {
     Items.registerSheet("shadowhunters", shItemSheet, {makeDefault: true});
 
     Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("shadowhunters", shCharacterSheet, {makeDefault: true});
+    Actors.registerSheet("shadowhunters", shCharacterSheet, {
+        makeDefault: true,
+        types: ["character"]
+    });
+    Actors.registerSheet("shadowhunters", shNpcSheet, {
+        makeDefault: true,
+        types: ["npc"]
+    });
 
     Handlebars.registerHelper("times", function (n, content) {
         let result = "";

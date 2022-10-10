@@ -1,4 +1,4 @@
-.shadowhunters.sheet.character {
+.shadowhunters.sheet.character, .shadowhunters.sheet.npc {
     min-width: 700px;
     min-height: 800px;
 
@@ -279,6 +279,28 @@
                         text-overflow: ellipsis;
                         max-width: 70%;
                     }
+                }
+            }
+        }
+    }
+}
+
+.shadowhunters.sheet.npc {
+    min-height: 700px;
+    min-width: 675px;
+    .sheet-header {
+        grid-template-columns: 85px calc(100% - 85px);
+        .profile-img {
+            height: 85px;
+            width: 85px;
+        }
+    }
+    .sheet-body {
+        .sheet-body-main {
+            .right {
+                .item-list {
+                    display: flex;
+                    flex-direction: column;
                 }
             }
         }
