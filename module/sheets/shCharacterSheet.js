@@ -34,7 +34,9 @@ export default class shCharacterSheet extends ActorSheet {
         html.find(".corruption").contextmenu(this._onCorruptionRightClick.bind(this));
 
         html.find(".attribute-name").click(this._onAttributeName.bind(this));
+
         html.find(".item-name").click(this._onItemName.bind(this));
+        html.find(".item-name").contextmenu(this._onItemNameRightClick.bind(this));
 
         if (this.actor.owner) {
             let handler = ev => this._onDragStart(ev);
@@ -54,6 +56,15 @@ export default class shCharacterSheet extends ActorSheet {
         const item = this.actor.items.get(li.dataset.itemId);
 
         shItem.ItemCard(item, this.actor)
+    }
+
+    _onItemNameRightClick(event) {
+        event.preventDefault();
+        const button = event.currentTarget;
+        const li = button.closest(".item");
+        const item = this.actor.items.get(li.dataset.itemId);
+
+        return item.sheet.render(true);
     }
 
     _onAttributeName(event) {

@@ -3,19 +3,10 @@
         <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
     </header>
-    <div class="sheet-body">
-        <div>
-            <h2>{{localize "shadowhunters.attributes"}}</h2>
-            <div class="sheet-body-attributes">
-                <label>{{localize "shadowhunters.featClass"}}</label>
-                <input type="text" name="system.featClass" value="{{item.system.featClass}}">
-            </div>
-        </div>
-        <div>
-            <h2>{{localize "shadowhunters.description"}}</h2>
-            <div class="sheet-body-description">
-                {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
-            </div>
+    <div class="sheet-body feat">
+        <h2>{{localize "shadowhunters.description"}}</h2>
+        <div class="sheet-body-description">
+            {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
         </div>
     </div>
 </form>

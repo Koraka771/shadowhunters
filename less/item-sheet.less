@@ -51,9 +51,14 @@
     .sheet-body {
         height: 100%;
         display: grid;
-        grid-template-columns: 10rem auto;
+        grid-template-columns: 12rem auto;
         padding: .5rem;
         column-gap: 1rem;
+
+        &.feat {
+            display: flex;
+            flex-direction: column;
+        }
 
         label {
             align-self: center;
@@ -74,6 +79,9 @@
             grid-template-columns: 40% 60%;
             align-content: start;
             padding: 0 .5rem;
+            input[type="checkbox"] {
+                justify-self: end;
+            }
             .attribute-line {
                 display: flex;
                 flex-direction: row;
@@ -81,6 +89,9 @@
                     min-width: 1rem;
                     text-align: center;
                     align-self: center;
+                }
+                input[type="text"] {
+                    text-align: center;
                 }
             }
         }

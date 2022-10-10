@@ -41,8 +41,7 @@
         "weapon": {
             "templates": ["common"],
             "weaponType": "melee",
-            "damage": "d6",
-            "equipped": false
+            "damage": "d6"
         },
         "armor": {
             "templates": ["common"],

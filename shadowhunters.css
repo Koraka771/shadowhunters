@@ -47,9 +47,13 @@
 .shadowhunters.sheet.item .sheet-body {
   height: 100%;
   display: grid;
-  grid-template-columns: 10rem auto;
+  grid-template-columns: 12rem auto;
   padding: 0.5rem;
   column-gap: 1rem;
+}
+.shadowhunters.sheet.item .sheet-body.feat {
+  display: flex;
+  flex-direction: column;
 }
 .shadowhunters.sheet.item .sheet-body label {
   align-self: center;
@@ -68,6 +72,9 @@
   align-content: start;
   padding: 0 0.5rem;
 }
+.shadowhunters.sheet.item .sheet-body .sheet-body-attributes input[type="checkbox"] {
+  justify-self: end;
+}
 .shadowhunters.sheet.item .sheet-body .sheet-body-attributes .attribute-line {
   display: flex;
   flex-direction: row;
@@ -76,6 +83,9 @@
   min-width: 1rem;
   text-align: center;
   align-self: center;
+}
+.shadowhunters.sheet.item .sheet-body .sheet-body-attributes .attribute-line input[type="text"] {
+  text-align: center;
 }
 .shadowhunters.sheet.item .sheet-body .sheet-body-description {
   height: calc(100% - 2rem);

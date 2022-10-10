@@ -46,7 +46,7 @@
         },
         "encumberance": "Traglast",
         "equipment": "Ausrüstung",
-        "equipped": "Ausgerüstet",
+        "equipped": "Angelegt",
         "fatedice": "Schicksalswürfel",
         "fateDiceReceived": "{actor} hat einen Schicksalswürfel erhalten.",
         "fateDiceSpent": "{actor} hat einen Schicksalswürfel verloren.",
