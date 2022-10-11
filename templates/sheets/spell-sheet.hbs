@@ -7,6 +7,8 @@
         <div>
             <h2>{{localize "shadowhunters.attributes"}}</h2>
             <div class="sheet-body-attributes">
+                <label>{{localize "shadowhunters.level"}}</label>
+                <input type="number" name="system.level" value="{{item.system.level}}">
                 <label>{{localize "shadowhunters.type"}}</label>            
                 <select name="system.spellType">
                     {{#select item.system.spellType}}

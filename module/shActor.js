@@ -36,7 +36,6 @@ export default class shActor extends Actor {
     }
 
     deductFate() {
-        let oof = false;
         let currentfate = this.system.fate;
         let newfate = currentfate - 1;
 
@@ -50,22 +49,16 @@ export default class shActor extends Actor {
         let chatOptions = {
             user: game.user._id,
             speaker: speaker,
-            content: game.i18n.format("shadowhunters.fateDiceSpent", {actor: this.name})
+            content: game.i18n.format("shadowhunters.fateDiceSpent", {actor: this.name, n: newfate})
          };
          ChatMessage.create(chatOptions);
-
-         if (newfate == 0) {
-            let chatOptions = {
-                user: game.user._id,
-                speaker: speaker,
-                content: game.i18n.format("shadowhunters.outOfFate", {actor: this.name})
-             };
-             ChatMessage.create(chatOptions);
-         };
     }
 
     addFate() {
-        this.update({system: {fate: this.system.fate + 1}});
+        let currentfate = this.system.fate;
+        let newfate = currentfate + 1;
+
+        this.update({system: {fate: newfate}});
 
         let speaker = ChatMessage.getSpeaker({actor: this});
         if (game.user.character != this ||	!game.user.character) {
@@ -75,7 +68,7 @@ export default class shActor extends Actor {
         let chatOptions = {
             user: game.user._id,
             speaker: speaker,
-            content: game.i18n.format("shadowhunters.fateDiceReceived", {actor: this.name})
+            content: game.i18n.format("shadowhunters.fateDiceReceived", {actor: this.name, n: newfate})
          };
          ChatMessage.create(chatOptions);
     }

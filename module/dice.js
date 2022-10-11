@@ -58,9 +58,6 @@ export async function AttributeRoll(attribute, actor, n, mode) {
         }
         case "kl": rolltype = "disadvantage";
     };
-
-    let fate = false;
-    if (actor.system.fate > 0) {fate = true};
     
     let cardData = {
         attribute: game.i18n.localize(shadowhunters.attributesLong[attribute]),
@@ -68,7 +65,6 @@ export async function AttributeRoll(attribute, actor, n, mode) {
         rollTotal: roll.total,
         rollFormula: rollFormula.replace("attribute", game.i18n.localize(shadowhunters.attributesLong[attribute])),
         resultDetail: roll.result,
-        fate: fate,
         critfumble: critfumble
     };
     chatData.content = await renderTemplate(chatTemplate, cardData);    
@@ -102,6 +98,8 @@ export async function FateDiceRoll(chatmessage) {
     } else {
         await roll.toMessage();
     };
+
+    if (roll.total <= 3) await actor.deductFate();
     
     // Prepare updated message
     let fatediceresult = chatmessage.flags.shadowhunters.fateDiceResult + roll.total;
@@ -118,8 +116,7 @@ export async function FateDiceRoll(chatmessage) {
 
     rolltotal += roll.total;
     resultdetail = resultdetail.concat(" + ").concat(fatediceresult);    
-    let fate = false;
-    if (actor.system.fate > 1) {fate = true};
+
     let cardData = {
         attribute: game.i18n.localize(shadowhunters.attributesLong[attribute]),
         rollmode: game.i18n.localize(shadowhunters.rolltypes[rolltype]),
@@ -128,7 +125,6 @@ export async function FateDiceRoll(chatmessage) {
         resultDetail: resultdetail,
         weaponname: weaponname,
         spellname: spellname,
-        fate: fate,
         critfumble: critfumble
     };
     let newContent = await renderTemplate(chatTemplate, cardData);
@@ -143,8 +139,6 @@ export async function FateDiceRoll(chatmessage) {
     await chatmessage.setFlag("shadowhunters", "fateDiceResult", fatediceresult);
 
     await chatmessage.update({content: newContent}); 
-
-    actor.deductFate();
 }
 
 export async function AttackDialog(actor, weapon) {
@@ -217,15 +211,13 @@ export async function AttackRoll(actor, weapon, n, mode) {
         }
         case "kl": rolltype = "disadvantage";
     };
-    let fate = false;
-    if (actor.system.fate > 0) {fate = true};
+
     let cardData = {
         rollmode: game.i18n.localize(shadowhunters.rolltypes[rolltype]),
         rollTotal: roll.total,
         rollFormula: rollFormula.replace("attribute", game.i18n.localize(shadowhunters.attributesLong[attribute])),
         resultDetail: roll.result,
         weaponname: weapon.name,
-        fate: fate,
         critfumble: critfumble
     };
     chatData.content = await renderTemplate(chatTemplate, cardData);    
@@ -298,15 +290,13 @@ export async function DamageRoll(actor, weapon, mode) {
     };
     let rolltype = "normal";
     if (mode === "crit") {rolltype = "crit";};
-    let fate = false;
-    if (actor.system.fate > 0) {fate = true};
+
     let cardData = {
         rollmode: game.i18n.localize(shadowhunters.rolltypes[rolltype]),
         rollTotal: roll.total,
         rollFormula: rollFormula.replace("attribute", game.i18n.localize(shadowhunters.attributesLong[attribute])),
         resultDetail: roll.result,
-        weaponname: weapon.name,
-        fate: fate
+        weaponname: weapon.name
     };
     chatData.content = await renderTemplate(chatTemplate, cardData);    
 
@@ -399,15 +389,13 @@ export async function SpellCheckRoll(actor, item, n, mode) {
         }
         case "kl": rolltype = "disadvantage";
     };
-    let fate = false;
-    if (actor.system.fate > 0) {fate = true};
+
     let cardData = {
         rollmode: game.i18n.localize(shadowhunters.rolltypes[rolltype]),
         rollTotal: roll.total,
         rollFormula: rollFormula.replace("attribute", game.i18n.localize(shadowhunters.attributesLong[attribute])),
         resultDetail: roll.result,
         spellname: item.name,
-        fate: fate,
         critfumble: critfumble
     };
     chatData.content = await renderTemplate(chatTemplate, cardData);    
@@ -453,15 +441,13 @@ export async function SpellDamageRoll(actor, item, mode) {
     };
     let rolltype = "normal";
     if (mode === "crit") {rolltype = "crit";};
-    let fate = false;
-    if (actor.system.fate > 0) {fate = true};
+
     let cardData = {
         rollmode: game.i18n.localize(shadowhunters.rolltypes[rolltype]),
         rollTotal: roll.total,
         rollFormula: rollFormula.replace("attribute", game.i18n.localize(shadowhunters.attributesLong[attribute])),
         resultDetail: roll.result,
-        spellname: item.name,
-        fate: fate
+        spellname: item.name
     };
     chatData.content = await renderTemplate(chatTemplate, cardData);    
 

@@ -62,7 +62,8 @@
         "spell": {
             "description": "",
             "spellType": "damage",
-            "damage": "2d6"
+            "damage": "2d6",
+            "level": 0
         },
         "feat": {
             "description": "",

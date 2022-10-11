@@ -358,7 +358,7 @@
   font-size: 2rem;
   margin: 0 0.25rem 0.25rem 0.25rem;
   text-align: center;
-  color: darkviolet;
+  color: goldenrod;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .right .fatedice .spent,
 .shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .fatedice .spent {
@@ -369,7 +369,7 @@
   font-size: 1.8rem;
   margin: 0 0.25rem 0.25rem 0.25rem;
   text-align: center;
-  color: crimson;
+  color: rebeccapurple;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .right .corruption .spent,
 .shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .corruption .spent {
@@ -447,7 +447,7 @@
 }
 .chat-message .chat-card h1 {
   font-family: fantasy;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   border-bottom: 2px solid black;
   display: flex;
   flex-direction: row;
@@ -477,7 +477,7 @@
   background-color: crimson;
 }
 .chat-message .chat-card button.fate-dice {
-  background-color: darkviolet;
+  background-color: goldenrod;
   color: white;
 }
 .chat-message .chat-card .details {
