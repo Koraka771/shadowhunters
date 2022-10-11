@@ -1,7 +1,19 @@
 <div class="chat-card attack">
     <h1>{{localize "shadowhunters.attack"}}: {{weaponname}}</h1>
 
-    <div class="result">{{rollTotal}}</div>
+    {{#if (eq critfumble "")}}
+        <div class="result">{{rollTotal}}</div>
+    {{/if}}
+
+    {{#if (eq critfumble "crit")}}
+        <div class="result crit">{{rollTotal}}</div>
+        <div class="critfumble crit">{{localize "shadowhunters.criticalHit"}}</div>
+    {{/if}}
+
+    {{#if (eq critfumble "fumble")}}
+        <div class="result fumble">{{rollTotal}}</div>
+        <div class="critfumble fumble">{{localize "shadowhunters.fumble"}}</div>
+    {{/if}}
     
     <div class="details hidden">
         <div class="row">

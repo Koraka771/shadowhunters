@@ -27,6 +27,14 @@ export async function AttributeRoll(attribute, actor, n, mode) {
         attribute: actor.system[attribute]
     };
     let roll = await new Roll(rollFormula, rollData).roll({async:true});
+
+    let critfumble = "";
+    if (roll.total - actor.system[attribute] == 20) {
+        critfumble = "crit";
+    };
+    if (roll.total - actor.system[attribute] == 1) {
+        critfumble = "fumble"
+    };
     
     let chatTemplate = "systems/shadowhunters/templates/chat/attribute-card.hbs"
 
@@ -60,7 +68,8 @@ export async function AttributeRoll(attribute, actor, n, mode) {
         rollTotal: roll.total,
         rollFormula: rollFormula.replace("attribute", game.i18n.localize(shadowhunters.attributesLong[attribute])),
         resultDetail: roll.result,
-        fate: fate
+        fate: fate,
+        critfumble: critfumble
     };
     chatData.content = await renderTemplate(chatTemplate, cardData);    
 
@@ -73,6 +82,7 @@ export async function AttributeRoll(attribute, actor, n, mode) {
     await chatmessage.setFlag("shadowhunters", "rollFormula", rollFormula.replace("attribute", game.i18n.localize(shadowhunters.attributesLong[attribute])));
     await chatmessage.setFlag("shadowhunters", "fateDiceRolled", 0);
     await chatmessage.setFlag("shadowhunters", "fateDiceResult", 0);
+    await chatmessage.setFlag("shadowhunters", "rollCritFumble", critfumble);
 }
 
 export async function FateDiceRoll(chatmessage) {
@@ -104,6 +114,7 @@ export async function FateDiceRoll(chatmessage) {
     let rollformula = chatmessage.flags.shadowhunters.rollFormula;
     let weaponname = chatmessage.flags.shadowhunters.weaponName;
     let spellname = chatmessage.flags.shadowhunters.spellName;
+    let critfumble = chatmessage.flags.shadowhunters.rollCritFumble;
 
     rolltotal += roll.total;
     resultdetail = resultdetail.concat(" + ").concat(fatediceresult);    
@@ -117,7 +128,8 @@ export async function FateDiceRoll(chatmessage) {
         resultDetail: resultdetail,
         weaponname: weaponname,
         spellname: spellname,
-        fate: fate
+        fate: fate,
+        critfumble: critfumble
     };
     let newContent = await renderTemplate(chatTemplate, cardData);
     let oldContent = chatmessage.content;
@@ -176,7 +188,15 @@ export async function AttackRoll(actor, weapon, n, mode) {
     };
 
     let roll = await new Roll(rollFormula, rollData).roll({async:true});
-    
+
+    let critfumble = "";
+    if (roll.total - actor.system[attribute] == 20) {
+        critfumble = "crit";
+    };
+    if (roll.total - actor.system[attribute] == 1) {
+        critfumble = "fumble"
+    };
+
     let chatTemplate = "systems/shadowhunters/templates/chat/attack-card.hbs"
     let speaker = ChatMessage.getSpeaker({actor: actor});
     if (game.user.character != actor ||	!game.user.character) {
@@ -205,7 +225,8 @@ export async function AttackRoll(actor, weapon, n, mode) {
         rollFormula: rollFormula.replace("attribute", game.i18n.localize(shadowhunters.attributesLong[attribute])),
         resultDetail: roll.result,
         weaponname: weapon.name,
-        fate: fate
+        fate: fate,
+        critfumble: critfumble
     };
     chatData.content = await renderTemplate(chatTemplate, cardData);    
 
@@ -219,6 +240,7 @@ export async function AttackRoll(actor, weapon, n, mode) {
     await chatmessage.setFlag("shadowhunters", "rollFormula", rollFormula.replace("attribute", game.i18n.localize(shadowhunters.attributesLong[attribute])));
     await chatmessage.setFlag("shadowhunters", "fateDiceRolled", 0);
     await chatmessage.setFlag("shadowhunters", "fateDiceResult", 0);
+    await chatmessage.setFlag("shadowhunters", "rollCritFumble", critfumble);
 }
 
 export async function DamageDialog(attacker, weapon) {
@@ -348,6 +370,14 @@ export async function SpellCheckRoll(actor, item, n, mode) {
     };
 
     let roll = await new Roll(rollFormula, rollData).roll({async:true});
+
+    let critfumble = "";
+    if (roll.total - actor.system[attribute] == 20) {
+        critfumble = "crit";
+    };
+    if (roll.total - actor.system[attribute] == 1) {
+        critfumble = "fumble"
+    };
     
     let chatTemplate = "systems/shadowhunters/templates/chat/spellcheck-card.hbs"
     let speaker = ChatMessage.getSpeaker({actor: actor});
@@ -377,7 +407,8 @@ export async function SpellCheckRoll(actor, item, n, mode) {
         rollFormula: rollFormula.replace("attribute", game.i18n.localize(shadowhunters.attributesLong[attribute])),
         resultDetail: roll.result,
         spellname: item.name,
-        fate: fate
+        fate: fate,
+        critfumble: critfumble
     };
     chatData.content = await renderTemplate(chatTemplate, cardData);    
 
@@ -391,6 +422,7 @@ export async function SpellCheckRoll(actor, item, n, mode) {
     await chatmessage.setFlag("shadowhunters", "rollFormula", rollFormula.replace("attribute", game.i18n.localize(shadowhunters.attributesLong[attribute])));
     await chatmessage.setFlag("shadowhunters", "fateDiceRolled", 0);
     await chatmessage.setFlag("shadowhunters", "fateDiceResult", 0);
+    await chatmessage.setFlag("shadowhunters", "rollCritFumble", critfumble);
 }
 
 export async function SpellDamageRoll(actor, item, mode) {

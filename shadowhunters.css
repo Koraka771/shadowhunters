@@ -453,6 +453,17 @@
   flex-direction: row;
   justify-content: space-between;
 }
+.chat-message .chat-card .crit {
+  color: darkgreen;
+}
+.chat-message .chat-card .fumble {
+  color: crimson;
+}
+.chat-message .chat-card .critfumble {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
 .chat-message .chat-card .result {
   font-size: 3rem;
   text-align: center;
