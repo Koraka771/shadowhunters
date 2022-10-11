@@ -20,11 +20,15 @@
         "character": {
             "templates": ["common"],
             "class": "",
-                "level": 1,
-                "xp": 0,
-                "coin": 0,
-                "corruption": 0,
-                "fate": 0
+            "level": 1,
+            "xp": 0,
+            "coin": 0,
+            "corruption": 0,
+            "fate": 0,
+            "encumberance": {
+                "current": 0,
+                "max": 10
+            }
         },
         "npc": {
             "templates": ["common"]

@@ -169,7 +169,10 @@
                     {{/each}}
                 </ol>
                 <div class="section-header">
-                    <h2>{{localize "shadowhunters.equipment"}}</h2>
+                    <h2>
+                        {{localize "shadowhunters.equipment"}}
+                        <span> (</span>{{actor.system.encumberance.current}}<span>/</span>{{actor.system.encumberance.max}}<span>)</span>
+                    </h2>
                     <a class="item-control" data-action="create" data-type="equipment"><i class="fas fa-plus"></i></a>
                 </div>
                 <ol class="item-list">

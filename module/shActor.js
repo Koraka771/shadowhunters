@@ -2,6 +2,21 @@ export default class shActor extends Actor {
     prepareDerivedData() {
         super.prepareDerivedData();
         this.system.defense = 10 + Math.round((this.system.str + this.system.dex + this.system.con)/3) + this.getArmorDefense();
+        this.system.encumberance.max = 10 + this.system.con;
+        this.system.encumberance.current = this.countItems();
+    }
+
+    countItems() {
+        let n = 0;
+        let items=this.items;
+
+        items.forEach((item) => {
+            if (item.type === "armor" || item.type === "weapon" || item.type === "equipemnt") {
+                n++
+            };
+        });
+
+        return (n);
     }
 
     getArmorDefense() {
