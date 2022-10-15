@@ -22,7 +22,7 @@
             "cha": "CHA"
         },
         "background": "Background",
-        "buttonFateDice": "Fate Dice",
+        "buttonFateDice": "Shadow Dice",
         "charm": "Charm",
         "chooseRolltype": "Choose how to roll:",
         "class": "Class",
@@ -33,6 +33,7 @@
         "cost": "Cost",
         "criticalHit": "Critical Hit",
         "criticalSuccess": "Critical Success",
+        "critmin": "Critical Hits at (or above)",
         "current": "Current",
         "damage": "Damage",
         "damageWith": "Damage with ",
@@ -49,9 +50,9 @@
         "encumberance": "Encumberance",
         "equipment": "Equipment",
         "equipped": "Equipped",
-        "fatedice": "Dice of Fate",
-        "fateDiceReceived": "{actor} received a Fate Die (Remaining: {n}).",
-        "fateDiceSpent": "{actor} spent a Fate Die (Remaining: {n}}.",
+        "fatedice": "Shadow Dice",
+        "fateDiceReceived": "{actor} received a Shadow Die (Remaining: {n}).",
+        "fateDiceSpent": "{actor} spent a Shadow Die (Remaining: {n}}.",
         "featClass": "Klasse",
         "features": "Features",
         "fumble": "Fumble",
@@ -61,8 +62,8 @@
         "level": "Level",
         "liftBendCarry": "Lift/Bend/Carry",
         "maximum": "Maxiuim",
-        "noFateDiceAvailable": "There are no Fate Dice available for this actor.",
-        "outOfFate": "{actor} is out of Fate Dice.",
+        "noFateDiceAvailable": "There are no Shadow Dice available for this actor.",
+        "outOfFate": "{actor} is out of Shadow Dice.",
         "perception": "Perception",
         "perform": "Perform",
         "persuade": "Persuade",
@@ -77,6 +78,7 @@
             "disadvantage": "Disadvantage",
             "normal": "Normal"
         },
+        "save": "Save",
         "saveVsSpells": "Save vs. spells",
         "spellcheck": "Spellcheck",
         "spellcheckFor": "Spellcheck for ",
@@ -88,6 +90,7 @@
         "stealth": "Stealth",
         "thievery": "Thievery",
         "toughness": "Toughness",
+        "tweaks": "Tweaks",
         "type": "Type",
         "weapons": "Weapons",
         "weaponType": {
@@ -95,6 +98,7 @@
             "ranged": "Ranged",
             "thrown": "Thrown"
         },
+        "weight": "Weight",
         "xp": "XP"
     }
 }

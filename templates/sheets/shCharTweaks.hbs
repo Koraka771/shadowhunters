@@ -1,0 +1,13 @@
+<form>
+    <h2>{{localize "shadowhunters.tweaks"}}</h2>
+
+    <div class="form-group">
+        <label>{{localize "shadowhunters.critmin"}}</label>
+        {{numberInput critmin name="critmin" step=1 min=0 max=20}}
+    </div>
+    <div class="sheet-footer">
+        <button type="submit" name="submit">
+            <i class="fa fa-check"></i> {{localize "shadowhunters.save"}}
+        </button>
+    </div>
+</form>

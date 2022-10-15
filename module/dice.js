@@ -184,7 +184,7 @@ export async function AttackRoll(actor, weapon, n, mode) {
     let roll = await new Roll(rollFormula, rollData).roll({async:true});
 
     let critfumble = "";
-    if (roll.total - actor.system[attribute] == 20) {
+    if (roll.total - actor.system[attribute] >= actor.system.critmin) {
         critfumble = "crit";
     };
     if (roll.total - actor.system[attribute] == 1) {

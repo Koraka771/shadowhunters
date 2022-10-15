@@ -1,5 +1,6 @@
 import * as Dice from "../dice.js";
 import * as shItem from "../shItem.js";
+import shCharTweaks from "./shCharTweaks.js";
 
 export default class shCharacterSheet extends ActorSheet {
     static get defaultOptions() {
@@ -47,6 +48,29 @@ export default class shCharacterSheet extends ActorSheet {
               li.addEventListener("dragstart", handler, false);
             });
           }
+    }
+
+    _getHeaderButtons() {
+        let buttons = super._getHeaderButtons();
+    
+        // Token Configuration
+        if (this.actor.isOwner) {
+          buttons = [
+            {
+              label: game.i18n.localize('shadowhunters.tweaks'),
+              class: 'configure-actor',
+              icon: 'fas fa-dice',
+              onclick: (ev) => this._onConfigureEntity(ev),
+            },
+            ...buttons,
+          ];
+        }
+        return buttons;
+      }
+
+    _onConfigureEntity(event) {
+        event.preventDefault();
+        new shCharTweaks(this.actor).render(true);
     }
 
     _onItemName(event) {

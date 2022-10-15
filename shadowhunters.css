@@ -504,3 +504,31 @@
   background-color: crimson;
   border: 1px solid lightgrey;
 }
+.shadowhunters-app.tweaks .window-content {
+  background: none;
+  background-color: white;
+}
+.shadowhunters-app.tweaks .window-content form h2 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  background: black;
+  color: white;
+  padding-left: 0.5rem;
+}
+.shadowhunters-app.tweaks .window-content form .form-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+.shadowhunters-app.tweaks .window-content form .form-group input[type="number"] {
+  flex: 1;
+  width: 50px;
+}
+.shadowhunters-app.tweaks .window-content form button {
+  color: white;
+  background-color: crimson;
+}
