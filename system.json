@@ -38,6 +38,6 @@
     "gridDistance": 2,
     "gridUnits": "m",
     "url": "https://github.com/Koraka771/shadowhunters",
-    "manifest": "https://github.com/Koraka771/shadowhunters/system.json",
-    "download": "https://github.com/Koraka771/shadowhunters/shadowhunters.zip"
+    "manifest": "https://github.com/Koraka771/shadowhunters/blob/main/system.json",
+    "download": "https://github.com/Koraka771/shadowhunters/blob/main/shadowhunters.zip"
 }
