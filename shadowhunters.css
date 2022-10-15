@@ -10,7 +10,6 @@
   border-bottom: 1px solid black;
 }
 .shadowhunters.sheet.item h1 {
-  font-family: fantasy;
   font-size: 2.2rem;
 }
 .shadowhunters.sheet.item h1 input {
@@ -107,7 +106,6 @@
 }
 .shadowhunters.sheet.character h1,
 .shadowhunters.sheet.npc h1 {
-  font-family: fantasy;
   font-size: 2.2rem;
   width: calc(100% - 1rem);
 }
@@ -446,7 +444,6 @@
   white-space: normal;
 }
 .chat-message .chat-card h1 {
-  font-family: fantasy;
   font-size: 1.1rem;
   border-bottom: 2px solid black;
   display: flex;
