@@ -34,9 +34,10 @@
           "path": "lang/de.json"
         }
     ],
-    "primaryTokenAttribute": "hp",
     "inititive": "1d6",
-    "url": "",
-    "manifest": "",
-    "download": ""
+    "gridDistance": 2,
+    "gridUnits": "m",
+    "url": "https://github.com/Koraka771/shadowhunters",
+    "manifest": "https://github.com/Koraka771/shadowhunters/system.json",
+    "download": "https://github.com/Koraka771/shadowhunters/shadowhunters.zip"
 }
