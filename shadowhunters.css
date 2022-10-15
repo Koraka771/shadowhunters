@@ -93,30 +93,38 @@
   height: 100%;
   padding: 0 0.5rem;
 }
+.shadowhunters.sheet.item .monsterattack .sheet-body .sheet-body-attributes {
+  grid-template-columns: 60% 40%;
+}
 .shadowhunters.sheet.character,
-.shadowhunters.sheet.npc {
+.shadowhunters.sheet.npc,
+.shadowhunters.sheet.monster {
   min-width: 700px;
   min-height: 800px;
 }
 .shadowhunters.sheet.character input,
-.shadowhunters.sheet.npc input {
+.shadowhunters.sheet.npc input,
+.shadowhunters.sheet.monster input {
   border: 1px dotted black;
   background: lightgrey;
   border-radius: 0;
 }
 .shadowhunters.sheet.character h1,
-.shadowhunters.sheet.npc h1 {
+.shadowhunters.sheet.npc h1,
+.shadowhunters.sheet.monster h1 {
   font-size: 2.2rem;
   width: calc(100% - 1rem);
 }
 .shadowhunters.sheet.character h1 input,
-.shadowhunters.sheet.npc h1 input {
+.shadowhunters.sheet.npc h1 input,
+.shadowhunters.sheet.monster h1 input {
   margin: 0;
   padding: 0 0 0 0.5rem;
   width: 100%;
 }
 .shadowhunters.sheet.character h2,
-.shadowhunters.sheet.npc h2 {
+.shadowhunters.sheet.npc h2,
+.shadowhunters.sheet.monster h2 {
   font-size: 1.1rem;
   font-weight: bold;
   border: none;
@@ -125,7 +133,8 @@
   padding-left: 0.5rem;
 }
 .shadowhunters.sheet.character .section-header,
-.shadowhunters.sheet.npc .section-header {
+.shadowhunters.sheet.npc .section-header,
+.shadowhunters.sheet.monster .section-header {
   display: flex;
   justify-content: space-between;
   background: black;
@@ -135,32 +144,37 @@
   height: 1.4rem;
 }
 .shadowhunters.sheet.character .window-content,
-.shadowhunters.sheet.npc .window-content {
+.shadowhunters.sheet.npc .window-content,
+.shadowhunters.sheet.monster .window-content {
   background: none;
   background-color: white;
 }
 .shadowhunters.sheet.character form,
-.shadowhunters.sheet.npc form {
+.shadowhunters.sheet.npc form,
+.shadowhunters.sheet.monster form {
   display: flex;
   flex-direction: column;
   border: 1px dashed black;
 }
 .shadowhunters.sheet.character .sheet-header,
-.shadowhunters.sheet.npc .sheet-header {
+.shadowhunters.sheet.npc .sheet-header,
+.shadowhunters.sheet.monster .sheet-header {
   display: grid;
   grid-template-columns: 7.25rem calc(100% - 7.25rem);
   column-gap: 1rem;
   padding: 0.5rem;
 }
 .shadowhunters.sheet.character .sheet-header .profile-img,
-.shadowhunters.sheet.npc .sheet-header .profile-img {
+.shadowhunters.sheet.npc .sheet-header .profile-img,
+.shadowhunters.sheet.monster .sheet-header .profile-img {
   border: none;
   margin: 0;
   height: 7.25rem;
   width: 7.25rem;
 }
 .shadowhunters.sheet.character .sheet-header .header-stats,
-.shadowhunters.sheet.npc .sheet-header .header-stats {
+.shadowhunters.sheet.npc .sheet-header .header-stats,
+.shadowhunters.sheet.monster .sheet-header .header-stats {
   display: grid;
   grid-template-columns: calc(40% - 0.5rem) calc(20% - 0.25rem) calc(17% - 0.25rem) calc(23% - 0.5rem);
   grid-column-gap: 0.5rem;
@@ -169,27 +183,32 @@
   margin-top: 0.5rem;
 }
 .shadowhunters.sheet.character .sheet-header .header-stats .stat,
-.shadowhunters.sheet.npc .sheet-header .header-stats .stat {
+.shadowhunters.sheet.npc .sheet-header .header-stats .stat,
+.shadowhunters.sheet.monster .sheet-header .header-stats .stat {
   display: flex;
   flex-direction: row;
 }
 .shadowhunters.sheet.character .sheet-header .header-stats .stat label,
-.shadowhunters.sheet.npc .sheet-header .header-stats .stat label {
+.shadowhunters.sheet.npc .sheet-header .header-stats .stat label,
+.shadowhunters.sheet.monster .sheet-header .header-stats .stat label {
   display: flex;
   font-weight: bold;
   margin-right: 0.5rem;
 }
 .shadowhunters.sheet.character .sheet-header .header-stats .stat input,
-.shadowhunters.sheet.npc .sheet-header .header-stats .stat input {
+.shadowhunters.sheet.npc .sheet-header .header-stats .stat input,
+.shadowhunters.sheet.monster .sheet-header .header-stats .stat input {
   display: flex;
   text-align: center;
 }
 .shadowhunters.sheet.character .sheet-header .header-stats .stat input.class,
-.shadowhunters.sheet.npc .sheet-header .header-stats .stat input.class {
+.shadowhunters.sheet.npc .sheet-header .header-stats .stat input.class,
+.shadowhunters.sheet.monster .sheet-header .header-stats .stat input.class {
   text-align: left;
 }
 .shadowhunters.sheet.character .sheet-header .header-description,
-.shadowhunters.sheet.npc .sheet-header .header-description {
+.shadowhunters.sheet.npc .sheet-header .header-description,
+.shadowhunters.sheet.monster .sheet-header .header-description {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -199,46 +218,54 @@
   margin-top: 0.5rem;
 }
 .shadowhunters.sheet.character .sheet-header .header-description label,
-.shadowhunters.sheet.npc .sheet-header .header-description label {
+.shadowhunters.sheet.npc .sheet-header .header-description label,
+.shadowhunters.sheet.monster .sheet-header .header-description label {
   display: flex;
   font-weight: bold;
   margin-right: 1rem;
 }
 .shadowhunters.sheet.character .sheet-header .header-description input,
-.shadowhunters.sheet.npc .sheet-header .header-description input {
+.shadowhunters.sheet.npc .sheet-header .header-description input,
+.shadowhunters.sheet.monster .sheet-header .header-description input {
   display: flex;
   text-align: left;
 }
 .shadowhunters.sheet.character .sheet-body,
-.shadowhunters.sheet.npc .sheet-body {
+.shadowhunters.sheet.npc .sheet-body,
+.shadowhunters.sheet.monster .sheet-body {
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main {
   display: grid;
   grid-template-columns: 40% 60%;
   grid-column-gap: 1rem;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .left,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .left {
   display: flex;
   flex-direction: column;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .left .hpdef,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .hpdef {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .hpdef,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .left .hpdef {
   display: grid;
   grid-template-columns: calc(35% - 0.5rem) calc(65% - 0.5rem);
   grid-column-gap: 1rem;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .left .hpdef .def,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .hpdef .def {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .hpdef .def,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .left .hpdef .def {
   display: flex;
   flex-direction: column;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .left .hpdef .def input,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .hpdef .def input {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .hpdef .def input,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .left .hpdef .def input {
   font-size: 3rem;
   height: 5.5rem;
   border: 1px dotted black;
@@ -248,26 +275,30 @@
   background-color: #efefef;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .left .hpdef .hp,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .hpdef .hp {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .hpdef .hp,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .left .hpdef .hp {
   display: flex;
   flex-direction: column;
   font-size: 3rem;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .left .hpdef .hp .hprow,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .hpdef .hp .hprow {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .hpdef .hp .hprow,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .left .hpdef .hp .hprow {
   display: flex;
   flex-direction: row;
   margin: 0 0.5rem;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .left .hpdef .hp .hprow span,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .hpdef .hp .hprow span {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .hpdef .hp .hprow span,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .left .hpdef .hp .hprow span {
   min-width: 1rem;
   text-align: center;
   align-self: center;
   font-size: 2rem;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .left .hpdef .hp .hprow input,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .hpdef .hp .hprow input {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .hpdef .hp .hprow input,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .left .hpdef .hp .hprow input {
   font-size: 3rem;
   height: 5.5rem;
   border: 1px dotted black;
@@ -277,7 +308,8 @@
   background: lightgrey;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .left .hpdef .hp .hpdescrow,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .hpdef .hp .hpdescrow {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .hpdef .hp .hpdescrow,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .left .hpdef .hp .hpdescrow {
   font-size: 0.7rem;
   display: flex;
   align-items: stretch;
@@ -285,13 +317,15 @@
   margin: 0 1.2rem 0.5rem 1.2rem;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .left .attributes,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .attributes {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .attributes,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .left .attributes {
   display: grid;
   grid-template-columns: 25% 25% 50%;
   list-style: none;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .left .attributes .attributes-desc,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .attributes .attributes-desc {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .attributes .attributes-desc,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .left .attributes .attributes-desc {
   display: flex;
   flex-direction: column;
   background: #efefef;
@@ -301,7 +335,8 @@
   margin-right: 0.5rem;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .left .attributes input,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .attributes input {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .attributes input,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .left .attributes input {
   font-size: 2rem;
   height: 3rem;
   border: 1px dotted black;
@@ -312,7 +347,8 @@
   max-width: fit-content;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .left .attributes .attribute-name,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .attributes .attribute-name {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .attributes .attribute-name,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .left .attributes .attribute-name {
   font-size: 2rem;
   align-self: center;
   padding-bottom: 0.5rem;
@@ -320,7 +356,8 @@
   margin-right: 0.5rem;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .left .item-list,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .item-list {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .item-list,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .left .item-list {
   display: grid;
   grid-template-columns: auto;
   list-style: none;
@@ -328,7 +365,8 @@
   margin: 0 0 0.5rem 0;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .left .item-list .item,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .item-list .item {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .item-list .item,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .left .item-list .item {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -339,60 +377,70 @@
   background: lightgrey;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .left .item-list .item-name,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .item-list .item-name {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .left .item-list .item-name,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .left .item-list .item-name {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 80%;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .right,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .right {
   display: flex;
   flex-direction: column;
   width: calc(100% - 1rem);
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .right .fatedice,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .fatedice {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .fatedice,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .right .fatedice {
   font-size: 2rem;
   margin: 0 0.25rem 0.25rem 0.25rem;
   text-align: center;
   color: goldenrod;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .right .fatedice .spent,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .fatedice .spent {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .fatedice .spent,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .right .fatedice .spent {
   color: lightgrey;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .right .corruption,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .corruption {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .corruption,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .right .corruption {
   font-size: 1.8rem;
   margin: 0 0.25rem 0.25rem 0.25rem;
   text-align: center;
   color: rebeccapurple;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .right .corruption .spent,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .corruption .spent {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .corruption .spent,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .right .corruption .spent {
   color: lightgrey;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .right .coin,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .coin {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .coin,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .right .coin {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .right .coin label,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .coin label {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .coin label,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .right .coin label {
   margin-right: 1rem;
   margin-left: 0.5rem;
   width: 50%;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .right .coin input,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .coin input {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .coin input,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .right .coin input {
   text-align: right;
   width: 50%;
   margin-right: 0.5rem;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .right .item-list,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .item-list {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .item-list,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .right .item-list {
   display: grid;
   grid-template-columns: calc(50% - 0.125rem) calc(50% - 0.125rem);
   grid-column-gap: 0.25rem;
@@ -401,7 +449,8 @@
   margin: 0 0 0.5rem 0;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .right .item-list .item,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .item-list .item {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .item-list .item,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .right .item-list .item {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -412,7 +461,8 @@
   background: lightgrey;
 }
 .shadowhunters.sheet.character .sheet-body .sheet-body-main .right .item-list .item-name,
-.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .item-list .item-name {
+.shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .item-list .item-name,
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .right .item-list .item-name {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -432,6 +482,25 @@
 .shadowhunters.sheet.npc .sheet-body .sheet-body-main .right .item-list {
   display: flex;
   flex-direction: column;
+}
+.shadowhunters.sheet.monster {
+  min-height: 500px;
+  min-width: 675px;
+}
+.shadowhunters.sheet.monster .sheet-header {
+  grid-template-columns: 85px calc(100% - 85px);
+}
+.shadowhunters.sheet.monster .sheet-header .profile-img {
+  height: 85px;
+  width: 85px;
+}
+.shadowhunters.sheet.monster .sheet-header .header-description input:nth-of-type(1) {
+  max-width: 2.5rem;
+  margin-right: 1rem;
+  text-align: center;
+}
+.shadowhunters.sheet.monster .sheet-body .sheet-body-main .left .hpdef .def input {
+  background-color: lightgrey;
 }
 .chat-message {
   background: none;
@@ -466,7 +535,8 @@
   text-align: center;
 }
 .chat-message .chat-card .weapon-attack,
-.chat-message .chat-card .spell-check {
+.chat-message .chat-card .spell-check,
+.chat-message .chat-card .monster-attack {
   margin-bottom: 0.25rem;
 }
 .chat-message .chat-card button {

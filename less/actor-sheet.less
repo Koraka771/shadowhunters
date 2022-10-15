@@ -1,4 +1,4 @@
-.shadowhunters.sheet.character, .shadowhunters.sheet.npc {
+.shadowhunters.sheet.character, .shadowhunters.sheet.npc, .shadowhunters.sheet.monster {
     min-width: 700px;
     min-height: 800px;
 
@@ -300,6 +300,38 @@
                 .item-list {
                     display: flex;
                     flex-direction: column;
+                }
+            }
+        }
+    }
+}
+
+.shadowhunters.sheet.monster {
+    min-height: 500px;
+    min-width: 675px;
+    .sheet-header {
+        grid-template-columns: 85px calc(100% - 85px);
+        .profile-img {
+            height: 85px;
+            width: 85px;
+        }
+        .header-description {
+            input:nth-of-type(1) {
+                max-width: 2.5rem;
+                margin-right: 1rem;
+                text-align: center;
+            }
+        }    
+    }
+    .sheet-body {
+        .sheet-body-main {
+            .left {
+                .hpdef {
+                    .def {
+                        input {
+                            background-color: lightgrey;
+                        }
+                    }
                 }
             }
         }

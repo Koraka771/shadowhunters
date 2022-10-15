@@ -1,0 +1,23 @@
+<form class="{{cssClass}} monsterattack" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+        <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
+    </header>
+    <div class="sheet-body">
+        <div>
+            <h2>{{localize "shadowhunters.attributes"}}</h2>
+            <div class="sheet-body-attributes">
+                <label>{{localize "shadowhunters.attackbonus"}}</label>
+                <input type="text" name="system.attackbonus" value="{{item.system.attackbonus}}">    
+                <label>{{localize "shadowhunters.damage"}}</label>
+                <input type="text" name="system.damage" value="{{item.system.damage}}">         
+            </div>
+        </div>
+        <div>
+            <h2>{{localize "shadowhunters.description"}}</h2>
+            <div class="sheet-body-description">
+                {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+    </div>
+</form>

@@ -2,6 +2,8 @@
     "shadowhunters": {
         "armor": "Rüstung",
         "attack": "Angriff",
+        "attackbonus": "Angriffsbonus",
+        "attacks": "Angriffe",
         "attackWith": "Angriff mit ",
         "attributeCheck": "Probe",
         "attributes": "Attribute",
@@ -80,6 +82,7 @@
         },
         "save": "Speichern",
         "saveVsSpells": "Abwehr von Zaubern",
+        "spellbonus": "Zauberbonus",
         "spellcheck": "Zauberprobe",
         "spellcheckFor": "Zauberprobe für ",
         "spells": "Zaubersprüche",

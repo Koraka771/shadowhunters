@@ -27,4 +27,12 @@
     </div>
     {{/if}}
     {{/if}}
+    {{#if (eq type "monsterattack")}}
+        <div class="weapon-attack">
+            <button>{{localize "shadowhunters.attack"}}</button>
+        </div>
+        <div class="weapon-damage">
+            <button>{{localize "shadowhunters.damage"}}</button>
+        </div>
+    {{/if}}
 </div>

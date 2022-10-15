@@ -2,6 +2,8 @@
     "shadowhunters": {
         "armor": "Armor",
         "attack": "Attack",
+        "attackbonus": "Attack Bonus",
+        "attacks": "Attacks",
         "attackWith": "Attack with ",
         "attributeCheck": "Check",
         "attributes": "Attributes",
@@ -80,6 +82,7 @@
         },
         "save": "Save",
         "saveVsSpells": "Save vs. spells",
+        "spellbonus": "Spellbonus",
         "spellcheck": "Spellcheck",
         "spellcheckFor": "Spellcheck for ",
         "spells": "Spells",

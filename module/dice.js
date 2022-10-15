@@ -148,15 +148,24 @@ export async function AttackDialog(actor, weapon) {
         buttons: {
             advantage: {
                 label: game.i18n.localize("shadowhunters.rolltypes.advantage"),
-                callback: () => AttackRoll(actor, weapon, "2", "kh")
+                callback: () => {
+                    if (weapon.type == "weapon") AttackRoll(actor, weapon, "2", "kh");
+                    if (weapon.type == "monsterattack") MonsterAttackRoll(actor, weapon, "2", "kh");
+                }
             },
             normal: {
                 label: game.i18n.localize("shadowhunters.rolltypes.normal"),
-                callback: () => AttackRoll(actor, weapon, "1", "")
+                callback: () => {
+                    if (weapon.type == "weapon") AttackRoll(actor, weapon, "1", "");
+                    if (weapon.type == "monsterattack") MonsterAttackRoll(actor, weapon, "1", "");
+                }
             },
             disadvantage: {
                 label: game.i18n.localize("shadowhunters.rolltypes.disadvantage"),
-                callback: () => AttackRoll(actor, weapon, "2", "kl")
+                callback: () => {
+                    if (weapon.type == "weapon") AttackRoll(actor, weapon, "2", "kl");
+                    if (weapon.type == "monsterattack") MonsterAttackRoll(actor, weapon, "2", "kl");
+                }
             }
         }
     }).render(true);
@@ -242,11 +251,17 @@ export async function DamageDialog(attacker, weapon) {
         buttons: {
             advantage: {
                 label: game.i18n.localize("shadowhunters.rolltypes.normal"),
-                callback: () => DamageRoll(attacker, weapon, "normal")
+                callback: () => {
+                    if (weapon.type == "weapon") DamageRoll(attacker, weapon, "normal");
+                    if (weapon.type == "monsterattack") MonsterDamageRoll(attacker, weapon, "normal");
+                }
             },
             normal: {
                 label: game.i18n.localize("shadowhunters.criticalHit"),
-                callback: () => DamageRoll(attacker, weapon, "crit")
+                callback: () => {
+                    if (weapon.type == "weapon") DamageRoll(attacker, weapon, "crit");
+                    if (weapon.type == "monsterattack") MonsterDamageRoll(attacker, weapon, "crit");
+                }
             }
         }
     }).render(true);
@@ -319,11 +334,17 @@ export async function SpellDamageDialog(attacker, weapon) {
         buttons: {
             advantage: {
                 label: game.i18n.localize("shadowhunters.rolltypes.normal"),
-                callback: () => SpellDamageRoll(attacker, weapon, "normal")
+                callback: () => {
+                    if (attacker.type != "monster") SpellDamageRoll(attacker, weapon, "normal");
+                    if (attacker.type == "monster") MonsterDamageRoll(attacker, weapon, "normal");
+                }
             },
             normal: {
                 label: game.i18n.localize("shadowhunters.criticalHit"),
-                callback: () => SpellDamageRoll(attacker, weapon, "crit")
+                callback: () => {
+                    if (attacker.type != "monster") SpellDamageRoll(attacker, weapon, "crit");
+                    if (attacker.type == "monster") MonsterDamageRoll(attacker, weapon, "crit");
+                }
             }
         }
     }).render(true);
@@ -336,15 +357,24 @@ export async function SpellCheckDialog(actor, item) {
         buttons: {
             advantage: {
                 label: game.i18n.localize("shadowhunters.rolltypes.advantage"),
-                callback: () => SpellCheckRoll(actor, item, "2", "kh")
+                callback: () => {
+                    if (actor.type == "monster") MonsterSpellCheckRoll(actor, item, "2", "kh");
+                    if (actor.type != "monster") SpellCheckRoll(actor, item, "2", "kh");
+                }
             },
             normal: {
                 label: game.i18n.localize("shadowhunters.rolltypes.normal"),
-                callback: () => SpellCheckRoll(actor, item, "1", "")
+                callback: () => {
+                    if (actor.type == "monster") MonsterSpellCheckRoll(actor, item, "1", "");
+                    if (actor.type != "monster") SpellCheckRoll(actor, item, "1", "");
+                }
             },
             disadvantage: {
                 label: game.i18n.localize("shadowhunters.rolltypes.disadvantage"),
-                callback: () => SpellCheckRoll(actor, item, "2", "kl")
+                callback: () => {
+                    if (actor.type == "monster") MonsterSpellCheckRoll(actor, item, "2", "kl");
+                    if (actor.type != "monster") SpellCheckRoll(actor, item, "2", "kl");
+                }
             }
         }
     }).render(true);
@@ -461,4 +491,146 @@ export async function SpellDamageRoll(actor, item, mode) {
     await chatmessage.setFlag("shadowhunters", "rollFormula", rollFormula.replace("attribute", game.i18n.localize(shadowhunters.attributesLong[attribute])));
     await chatmessage.setFlag("shadowhunters", "fateDiceRolled", 0);
     await chatmessage.setFlag("shadowhunters", "fateDiceResult", 0);
+}
+
+export async function MonsterAttackRoll(actor, weapon, n, mode) {
+
+    console.log(weapon);
+
+    let rollFormula = n.concat("d20").concat(mode).concat("+@attackbonus");
+    let rollData = {
+        attackbonus: weapon.system.attackbonus
+    };
+
+    let roll = await new Roll(rollFormula, rollData).roll({async:true});
+
+    console.log(roll);
+
+    let critfumble = "";
+    if (roll.total - weapon.system.attackbonus >= actor.system.critmin) {
+        critfumble = "crit";
+    };
+    if (roll.total - weapon.system.attackbonus == 1) {
+        critfumble = "fumble"
+    };
+
+    let chatTemplate = "systems/shadowhunters/templates/chat/monsterattack-card.hbs"
+    let speaker = ChatMessage.getSpeaker({actor: actor});
+    if (game.user.character != actor ||	!game.user.character) {
+        speaker = ChatMessage.getSpeaker({actor: actor, alias: actor.name.concat(" (").concat(game.user.name).concat(")")});
+    };
+    let chatData = {
+        user: game.user._id,
+        speaker: speaker,
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+        rolls: [roll],
+        rollMode: game.settings.get("core", "rollMode")
+    };
+    let rolltype = "normal";
+    switch (mode) {
+        case "kh": {
+            rolltype = "advantage";
+            break;
+        }
+        case "kl": rolltype = "disadvantage";
+    };
+
+    let cardData = {
+        rollmode: game.i18n.localize(shadowhunters.rolltypes[rolltype]),
+        rollTotal: roll.total,
+        rollFormula: rollFormula.replace("attackbonus", game.i18n.localize("shadowhunters.attackbonus")),
+        resultDetail: roll.result,
+        weaponname: weapon.name,
+        critfumble: critfumble
+    };
+    chatData.content = await renderTemplate(chatTemplate, cardData);    
+
+    let chatmessage =  await ChatMessage.create(chatData);
+}
+
+export async function MonsterDamageRoll(actor, weapon, mode) {
+
+    let rollFormula = weapon.system.damage;
+    if (mode === "crit") {
+        rollFormula = "2*(".concat(weapon.system.damage).concat(")");
+    };
+
+    let roll = await new Roll(rollFormula).roll({async:true});
+    
+    let chatTemplate = "systems/shadowhunters/templates/chat/monsterdamage-card.hbs"
+    let speaker = ChatMessage.getSpeaker({actor: actor});
+    if (game.user.character != actor ||	!game.user.character) {
+        speaker = ChatMessage.getSpeaker({actor: actor, alias: actor.name.concat(" (").concat(game.user.name).concat(")")});
+    };
+    let chatData = {
+        user: game.user._id,
+        speaker: speaker,
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+        rolls: [roll],
+        rollMode: game.settings.get("core", "rollMode")
+    };
+    let rolltype = "normal";
+    if (mode === "crit") {rolltype = "crit";};
+
+    let cardData = {
+        rollmode: game.i18n.localize(shadowhunters.rolltypes[rolltype]),
+        rollTotal: roll.total,
+        rollFormula: rollFormula,
+        resultDetail: roll.result,
+        weaponname: weapon.name
+    };
+    chatData.content = await renderTemplate(chatTemplate, cardData);    
+
+    let chatmessage =  await ChatMessage.create(chatData);
+}
+
+export async function MonsterSpellCheckRoll(actor, item, n, mode) {
+
+    let rollFormula = n.concat("d20").concat(mode).concat("+@spellbonus");
+    let rollData = {
+        spellbonus: actor.system.level
+    };
+
+    let roll = await new Roll(rollFormula, rollData).roll({async:true});
+
+    let critfumble = "";
+    if (roll.total - actor.system.level == 20) {
+        critfumble = "crit";
+    };
+    if (roll.total - actor.system.level == 1) {
+        critfumble = "fumble"
+    };
+    
+    let chatTemplate = "systems/shadowhunters/templates/chat/monsterspellcheck-card.hbs"
+    let speaker = ChatMessage.getSpeaker({actor: actor});
+    if (game.user.character != actor ||	!game.user.character) {
+        speaker = ChatMessage.getSpeaker({actor: actor, alias: actor.name.concat(" (").concat(game.user.name).concat(")")});
+    };
+    let chatData = {
+        user: game.user._id,
+        speaker: speaker,
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+        rolls: [roll],
+        rollMode: game.settings.get("core", "rollMode")
+    };
+    let rolltype = "normal";
+    switch (mode) {
+        case "kh": {
+            rolltype = "advantage";
+            break;
+        }
+        case "kl": rolltype = "disadvantage";
+    };
+
+    let cardData = {
+        rollmode: game.i18n.localize(shadowhunters.rolltypes[rolltype]),
+        rollTotal: roll.total,
+        rollFormula: rollFormula.replace("spellbonus", game.i18n.localize("shadowhunters.spellbonus")),
+        resultDetail: roll.result,
+        spellname: item.name,
+        critfumble: critfumble
+    };
+    chatData.content = await renderTemplate(chatTemplate, cardData);    
+
+    let chatmessage =  await ChatMessage.create(chatData);
 }

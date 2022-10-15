@@ -3,6 +3,7 @@ import * as Chat from "./module/chat.js";
 import shItemSheet from "./module/sheets/shItemSheet.js";
 import shCharacterSheet from "./module/sheets/shCharacterSheet.js";
 import shNpcSheet from "./module/sheets/shNpcSheet.js";
+import shMonsterSheet from "./module/sheets/shMonsterSheet.js";
 import shActor from "./module/shActor.js";
 import shItem from "./module/shItem.js";
 import * as shItemFunctions from "./module/shItem.js";
@@ -12,6 +13,7 @@ Hooks.once("init", function() {
 
     game.shadowhunters = {
         shActor,
+        shItem,
         createHotbarMacro,
         createItemCard
       };
@@ -32,6 +34,10 @@ Hooks.once("init", function() {
     Actors.registerSheet("shadowhunters", shNpcSheet, {
         makeDefault: true,
         types: ["npc"]
+    });
+    Actors.registerSheet("shadowhunters", shMonsterSheet, {
+        makeDefault: true,
+        types: ["monster"]
     });
 
     Handlebars.registerHelper("times", function (n, content) {
@@ -68,7 +74,7 @@ async function createHotbarMacro(data, slot) {
     let uuid = data.uuid.split(".");
     let actor = game.actors.get(uuid[1]);
     let item = actor.items.get(uuid[3]);
-    if (item.type != "weapon" && item.type != "spell") return false;
+    if (item.type != "weapon" && item.type != "spell" && item.type != "monsterattack") return false;
 
     console.log("Create Hotbar Macro fired...");
     const command = `game.shadowhunters.createItemCard("`.concat(item._id).concat(`", "`).concat(actor._id).concat(`");`);

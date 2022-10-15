@@ -1,9 +1,19 @@
 export default class shActor extends Actor {
+    prepareData() {
+        super.prepareData();
+    }
+
     prepareDerivedData() {
         super.prepareDerivedData();
-        this.system.defense = 10 + Math.round((this.system.str + this.system.dex + this.system.con)/3) + this.getArmorDefense();
-        this.system.encumberance.max = 10 + this.system.con;
-        this.system.encumberance.current = this.getCurrentEmcumberance();
+
+        if (this.type == "character") {
+            this.system.defense = 10 + Math.round((this.system.str + this.system.dex + this.system.con)/3) + this.getArmorDefense();
+            this.system.encumberance.max = 10 + this.system.con;
+            this.system.encumberance.current = this.getCurrentEmcumberance();
+        };
+        if (this.type == "npc") {
+            this.system.defense = 10 + Math.round((this.system.str + this.system.dex + this.system.con)/3) + this.getArmorDefense();
+        };
     }
 
     getCurrentEmcumberance() {
