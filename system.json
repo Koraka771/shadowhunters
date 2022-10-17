@@ -1,43 +1,42 @@
 {
-    "id": "shadowhunters",
-    "title": "Shadowhunters",
-    "description": "Korakas OSR heartbreaker",
-    "version": "0.2",
-    "compatibility": {
-        "minimum": "10",
-        "verified": "10.287",
-        "maximum": "10"
-      },
-    "authors": [
-        {
-          "name": "Koraka"
-        }
-      ],
-    "esmodules": [
-        "shadowhunters.js"
-    ],
-    "styles": [
-        "shadowhunters.css"
-    ],
-    "packs": [
-
-    ],
-    "languages": [
-        {
-          "lang": "en",
-          "name": "English",
-          "path": "lang/en.json"
-        },
-        {
-          "lang": "de",
-          "name": "Deutsch",
-          "path": "lang/de.json"
-        }
-    ],
-    "inititive": "1d6",
-    "gridDistance": 2,
-    "gridUnits": "m",
-    "url": "https://github.com/Koraka771/shadowhunters",
-    "manifest": "https://github.com/Koraka771/shadowhunters/releases/latest/download/system.json",
-    "download": "https://github.com/Koraka771/shadowhunters/releases/latest/download/shadowhunters.zip"
+  "id": "shadowhunters",
+  "title": "Shadowhunters",
+  "description": "Korakas OSR heartbreaker",
+  "version": "0.2",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10.287",
+    "maximum": "10"
+  },
+  "authors": [
+    {
+      "name": "Koraka",
+      "flags": {}
+    }
+  ],
+  "esmodules": [
+    "shadowhunters.js"
+  ],
+  "styles": [
+    "shadowhunters.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    },
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "lang/de.json",
+      "flags": {}
+    }
+  ],
+  "gridDistance": 2,
+  "gridUnits": "m",
+  "url": "https://github.com/Koraka771/shadowhunters",
+  "manifest": "https://github.com/Koraka771/shadowhunters/releases/latest/download/system.json",
+  "download": "https://github.com/Koraka771/shadowhunters/releases/latest/download/shadowhunters.zip"
 }
